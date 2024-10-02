@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Blog Insight || Blogging / Magazine HTML Template">
+
+
+    <title>文章详情</title>
+
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/media/favicon.png">
+
+    <!-- All CSS files -->
+    <link rel="stylesheet" href="static/css/font-awesome.css">
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/slick.css">
+    <link rel="stylesheet" href="static/css/slick-theme.css">
+    <link rel="stylesheet" href="static/css/app.css">
+    <link rel="stylesheet" type="text/css" href="http://css.huangwx.cn/css/sweetalert.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+</head>
+
+<body class="tt-smooth-scroll">
+    <style>
+        /* 通用的图片样式类 */
+        .article-image {
+            width: 120px;
+            height: 64px;
+            object-fit: contain;
+            /* 保持图片比例，内容适应容器 */
+            /* 如果希望图片填充整个容器并可能裁剪，可以使用 cover */
+            /* object-fit: cover; */
+            /* 可选：添加边框、圆角等其他样式 */
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+    </style>
+
+    <!-- Preloader-->
+    <div id="preloader">
+        <div class="loader">
+            <div class="loader-square"></div>
+            <div class="loader-square"></div>
+            <div class="loader-square"></div>
+            <div class="loader-square"></div>
+            <div class="loader-square"></div>
+            <div class="loader-square"></div>
+            <div class="loader-square"></div>
+        </div>
+    </div>
+    <!-- Preloader-->
+
+    <!-- Main Wrapper Start -->
+    <div id="scroll-container" class="scroll-container">
+
+        <!-- HEADER MENU START -->
+        <header class="header mb-16">
+            <div class="header-topbar bg-light-gray">
+                <div class="container slider-container">
+                    <div class="header-topbar-wrapper">
+                        <div class="breaking-news">
+                            <p class="lead white">重大新闻</p>
+                        </div>
+                        <div>
+                            <div class="breaking-news-slider">
+                                <div class="news-text">
+                                    <p class="fw-500 black">电子学习成功的终极指南</p>
+                                    <p class="fw-500">创建交互式和引人入胜的电子学习内容 </p>
+                                </div>
+                                <div class="news-text">
+                                    <p class="fw-500 black">电子学习成功的终极指南</p>
+                                    <p class="fw-500">创建交互式和引人入胜的电子学习内容 </p>
+                                </div>
+                                <div class="news-text">
+                                    <p class="fw-500 black">电子学习成功的终极指南</p>
+                                    <p class="fw-500">创建交互式和引人入胜的电子学习内容 </p>
+                                </div>
+                                <div class="news-text">
+                                    <p class="fw-500 black">电子学习成功的终极指南</p>
+                                    <p class="fw-500">创建交互式和引人入胜的电子学习内容 </p>
+                                </div>
+                                <div class="news-text">
+                                    <p class="fw-500 black">电子学习成功的终极指南</p>
+                                    <p class="fw-500">创建交互式和引人入胜的电子学习内容 </p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <nav class="navigation d-flex align-items-center justify-content-between">
+                    <div class="nav-main-wrapper">
+                        <a href="index.html" class="d-flex align-items-center">
+                            <img src="static/picture/logo.png" alt="/logo" class="header-logo">
+                        </a>
+
+                        <div class="main-menu__right">
+                            <div class="search-heart-icon d-sm-flex d-none align-items-center gap-8">
+                                <form id="demo-2">
+                                    <input type="search" class="form-control form-control-nav" placeholder="Search">
+                                    <button type="submit">
+                                        <i class="fa-light fa-magnifying-glass"></i>
+                                    </button>
+                                </form>
+                                <div class="user-icon notification">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewbox="0 0 20 20"
+                                        fill="none">
+                                        <path
+                                            d="M16.0547 10.268V8.39844C16.0547 5.67102 14.2418 3.35934 11.7579 2.6043V1.75781C11.7579 0.788555 10.9693 0 10 0C9.03079 0 8.24223 0.788555 8.24223 1.75781V2.6043C5.75825 3.35934 3.94536 5.67098 3.94536 8.39844V10.268C3.94536 12.6638 3.03216 14.9355 1.37399 16.6648C1.21149 16.8342 1.16583 17.0843 1.25794 17.3002C1.35005 17.5161 1.56216 17.6562 1.79692 17.6562H7.1293C7.40149 18.9919 8.58524 20 10 20C11.4149 20 12.5986 18.9919 12.8708 17.6562H18.2032C18.4379 17.6562 18.65 17.5161 18.7421 17.3002C18.8342 17.0843 18.7886 16.8342 18.6261 16.6648C16.9679 14.9355 16.0547 12.6638 16.0547 10.268ZM9.41411 1.75781C9.41411 1.43473 9.67696 1.17188 10 1.17188C10.3231 1.17188 10.586 1.43473 10.586 1.75781V2.37219C10.3931 2.35359 10.1977 2.34375 10 2.34375C9.80239 2.34375 9.60696 2.35359 9.41411 2.37219V1.75781ZM10 18.8281C9.23618 18.8281 8.58489 18.3382 8.34301 17.6562H11.6571C11.4152 18.3382 10.7639 18.8281 10 18.8281ZM3.05981 16.4844C4.39423 14.6956 5.11723 12.5309 5.11723 10.268V8.39844C5.11723 5.70605 7.30766 3.51562 10 3.51562C12.6924 3.51562 14.8829 5.70605 14.8829 8.39844V10.268C14.8829 12.5309 15.6059 14.6956 16.9403 16.4844H3.05981Z"
+                                            fill="#FAFAFA"></path>
+                                        <path
+                                            d="M17.6172 8.39844C17.6172 8.72203 17.8796 8.98438 18.2032 8.98438C18.5268 8.98438 18.7891 8.72203 18.7891 8.39844C18.7891 6.05078 17.8749 3.84363 16.2148 2.18359C15.9861 1.9548 15.615 1.95477 15.3862 2.18359C15.1574 2.41242 15.1574 2.7834 15.3862 3.01223C16.8249 4.45094 17.6172 6.36379 17.6172 8.39844Z"
+                                            fill="#FAFAFA"></path>
+                                        <path
+                                            d="M1.79692 8.98438C2.12051 8.98438 2.38286 8.72203 2.38286 8.39844C2.38286 6.36383 3.1752 4.45098 4.61387 3.01227C4.8427 2.78344 4.8427 2.41246 4.61387 2.18363C4.38508 1.9548 4.01407 1.9548 3.78524 2.18363C2.1252 3.84367 1.21098 6.05078 1.21098 8.39844C1.21098 8.72203 1.47333 8.98438 1.79692 8.98438Z"
+                                            fill="#FAFAFA"></path>
+                                    </svg>
+                                </div>
+                                <div class="notification-menu">
+                                    <h5 class="mb-24 black">Recent Articles (05)</h5>
+                                    <ul>
+                                        <li class="pb-16">
+                                            <a href="blog-detail-2.html">
+                                                <div class="d-flex flex-shrink-0 img-block">
+                                                    <img src="static/picture/popup-1.png" alt="" class="br-8">
+                                                </div>
+                                                <div class="text-block">
+                                                    <p class="fw-500">Tools and Technologies for E-Learning</p>
+                                                    <p class="medium-gray mb-8">24 June, 2024</p>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="py-16 border-list">
+                                            <a href="blog-detail-2.html">
+                                                <div class="d-flex flex-shrink-0 img-block">
+                                                    <img src="static/picture/popup-2.png" alt="" class="br-8">
+                                                </div>
+                                                <div class="text-block">
+                                                    <p class="fw-500">Maximizing Your Online Learning Experience</p>
+                                                    <p class="medium-gray mb-8">24 June, 2024</p>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="pt-16 mb-24">
+                                            <a href="blog-detail-2.html">
+                                                <div class="d-flex flex-shrink-0 img-block">
+                                                    <img src="static/picture/popup-3.png" alt="" class="br-8">
+                                                </div>
+
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <a href="blog-list-1.html" class="cus-btn w-100">
+                                        <span class="cus-btn-parent small-padding text-center w-100">
+                                            <span class="cus-btn-slide"></span>
+                                            <span class="btn-text"> See All</span>
+                                        </span>
+                                    </a>
+                                </div>
+                                <a href="#" id="login_or_usercent">
+                                <div class="user-icon account">
+                                    <img class="fa-light fa-user" src="" id="avatar">
+                                </div>
+                                </a>
+                            </div>
+                            <a href="register.html" class="d-xl-none d-flex main-menu__toggler mobile-nav__toggler">
+                                <img src="static/picture/menu-2.png" alt="">
+                            </a>
+                        </div>
+                </nav>
+            </div>
+        </header>
+        <!-- HEADER MENU END -->
+
+        <!-- ADS BANNER START -->
+        <section class="advertisment-section pt-40">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="ad-container">
+                            <div class="d-flex align-items-center gap-24">
+                                <div class="ad-size text-end">
+                                    <h5 class="white fw-500">ADS</h5>
+                                    <p class="white fw-500">856x100</p>
+                                </div>
+                                <div class="vr-line"></div>
+                                <div class="text">
+                                    <p class="fw-500 white">Explore the World with Random Travel Tours, <br
+                                            class="d-sm-block d-none">
+                                        Your Adventure Awaits!</p>
+                                </div>
+                            </div>
+                            <a href="blog-standard-1.html" class="cus-btn">
+                                <span class="cus-btn-parent small-padding">
+                                    <span class="cus-btn-slide"></span>
+                                    <span class="btn-text">Read More</span>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ADS BANNER END -->
+
+        <!-- BLOG DETAIL START -->
+        <section class="blog-detail py-40">
+            <div class="container">
+                <div class="row row-gap-4">
+                    <div class="col-xl-8 order-xl-1 order-2">
+                        <div class="blog-detail-wrapper">
+                            <div class="main-image mb-24">
+                                <img src="static/picture/blog-detail-1.png" alt="" class="w-100 br-8" id="article_img">
+                            </div>
+                            <div class="tag-label mb-16">事件</div>
+                            <h3 class="black fw-700 mb-16" id="article_title"></h3>
+                            <div class="d-flex align-items-center justify-content-between flex-wrap gap-16 mb-16">
+                                <div class="d-flex align-items-center gap-16 mb-8">
+                                    <div class="d-flex align-items-center gap-8">
+                                        <img src="static/picture/user-3.png" alt="" id="user_icon">
+                                        <p class="color-sec" id="article_author"></p>
+                                    </div>
+                                    <div>•</div>
+                                    <div class="d-flex align-items-center gap-8">
+                                        <img src="static/picture/calender.png" alt="">
+                                        <p class="medium-gray mt-1" id="data-auth">24 June, 2024</p>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center gap-12 mb-16">
+                                    <div class="d-flex align-items-center gap-8">
+                                        <img src="static/picture/clock.png" alt="">
+                                        <p class="medium-gray">五分钟阅读</p>
+                                    </div>
+                                    <div>•</div>
+                                    <div class="d-flex align-items-center gap-8">
+                                        <img src="static/picture/eye.png" alt="">
+                                        <p class="medium-gray" id="click_count"></p>
+                                    </div>
+                                    <div>•</div>
+                                    <div class="d-flex align-items-center gap-8">
+                                        <img src="static/picture/comment.png" alt="">
+                                        <p class="medium-gray" id="comment_count"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="medium-gray mb-12" id="paragraph1"></p>
+
+                            <p class="medium-gray mb-24" id="paragraph2"></p>
+                            <div class="qoutes bg-light-gray mb-24">
+                                <svg class="mb-24" xmlns="http://www.w3.org/2000/svg" width="40" height="32"
+                                    viewbox="0 0 40 32" fill="none">
+                                    <path
+                                        d="M39.9844 1.90735e-06V8.68663C39.9844 11.3693 39.516 14.1371 38.5792 16.99C37.5998 19.8856 36.2585 22.6321 34.5552 25.2295C32.8094 27.8696 30.8294 30.1264 28.6151 32L20.9504 27.2096C22.6537 24.5269 24.0589 21.6953 25.166 18.7146C26.2305 15.7764 26.7628 12.4551 26.7628 8.7505V1.90735e-06H39.9844ZM19.0343 1.90735e-06V8.68663C19.0343 11.3693 18.5659 14.1371 17.6291 16.99C16.6497 19.8856 15.3084 22.6321 13.6051 25.2295C11.8593 27.8696 9.87925 30.1264 7.66502 32L0.000343323 27.2096C1.70361 24.5269 3.1088 21.6953 4.21591 18.7146C5.28045 15.7764 5.81272 12.4551 5.81272 8.7505V1.90735e-06H19.0343Z"
+                                        fill="#E60023"></path>
+                                </svg>
+                                <h6 class="black fw-500 mb-16" id="paragraph3"></h6>
+                                <h6 class="color-sec">Ethan James</h6>
+                            </div>
+                            <p class="medium-gray mb-24" id="paragraph4">
+                                <a href="" class="color-primary">
+                            </p>
+
+                            <div class="row row-gap-2 mb-24">
+                                <div class="col-xl-6 col-lg-6 col-md-6">
+                                    <h6 class="black mb-16"></h6>
+                                    <p class="medium-gray mb-16" id="paragraph5">
+                                    </p>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6">
+                                    <img src="static/picture/blog-detail-2.png" alt=""
+                                        class="h-100 object-fit-cover br-8">
+                                </div>
+                            </div>
+                            <p class="medium-gray mb-12" id="paragraph6">
+                            </p>
+
+                            <p class="medium-gray mb-24" id="paragraph7">
+                                <a href="" class="color-primary">
+                            </p>
+
+                            <p class="medium-gray mb-32" id="paragraph8">
+                                <a href="" class="color-primary">
+                            </p>
+
+                            <div class="hr-line line-2 mb-12"></div>
+                            <div
+                                class="d-flex align-items-center justify-content-between flex-wrap gap-md-0 gap-24 mb-12">
+                                <div class="blog-tags-wrapper d-flex align-items-center gap-16">
+                                    <h6>关键词:</h6>
+                                    <a href="" class="tag-label white" id="main-keyword"> Event </a>
+                                </div>
+
+                            </div>
+                            <div class="hr-line line-2 mb-32"></div>
+                            <div class="blog-post-row mb-32">
+                                <a href="" class="blog-post-block" id="pre_btn">
+                                    <div>
+                                        <div class="arrow-block mb-8">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewbox="0 0 24 24" fill="none">
+                                                <path
+                                                    d="M9.48438 17.25C9.48438 15 7.38438 12 4.98438 12M4.98438 12C6.35938 12 9.48437 11.25 9.48438 6.75M4.98438 12H19.2344"
+                                                    stroke="#141516" stroke-width="1.5"></path>
+                                            </svg>
+                                        </div>
+                                        <p class="post-text fw-500">
+                                            上篇
+                                        </p>
+                                    </div>
+                                    <div class="d-flex align-items-center gap-16">
+                                        <img src="static/picture/blog-prev.png" alt="" class="post-image br-8"
+                                            id="pre_img">
+                                        <p class="fw-500" id="pre_title">Tools and Technologies <br> for E-Learning</p>
+                                    </div>
+                                </a>
+
+                                <a href="" class="blog-post-block text-end" id="next_btn">
+                                    <div class="d-flex align-items-center gap-16">
+                                        <p class="fw-500" id="next_title">how to capture winged <br> beauties on camera
+                                        </p>
+                                        <img src="static/picture/blog-next.png" alt="" class="post-image br-8"
+                                            id="next_img">
+                                    </div>
+                                    <div class="d-flex flex-column align-items-end">
+                                        <div class="arrow-block mb-8">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewbox="0 0 24 24" fill="none">
+                                                <path
+                                                    d="M14.5156 17.25C14.5156 15 16.6156 12 19.0156 12M19.0156 12C17.6406 12 14.5156 11.25 14.5156 6.75M19.0156 12H4.76562"
+                                                    stroke="#141516" stroke-width="1.5"></path>
+                                            </svg>
+                                        </div>
+                                        <p class="post-text fw-500">
+                                            下篇
+                                        </p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="hr-line line-2 mb-24"></div>
+
+
+                            <div class="hr-line line-2 mb-24"></div>
+
+                            <!-- REVIEW AREA -->
+                            <div class="review-area">
+                                <h5 class="fw-500 black mb-8">发表评论</h5>
+                                <p class="medium-gray mb-24">您的电子邮件地址将不会被公布。必填字段被标记为*</p>
+                                <form action="index.html" method="post" class="blog-form mb-32">
+                                    <div class="row gx-3">
+                                        <div class="col-md-6">
+                                            <div class="input-block mb-16">
+                                                <input type="text" id="name" name="name" class="form-control"
+                                                    placeholder="您的姓名" required="">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                                    viewbox="0 0 20 20" fill="none">
+                                                    <path
+                                                        d="M10 0C7.09223 0 4.72656 2.36566 4.72656 5.27344C4.72656 8.18121 7.09223 10.5469 10 10.5469C12.9078 10.5469 15.2734 8.18121 15.2734 5.27344C15.2734 2.36566 12.9078 0 10 0ZM10 9.375C7.7384 9.375 5.89844 7.53504 5.89844 5.27344C5.89844 3.01184 7.7384 1.17188 10 1.17188C12.2616 1.17188 14.1016 3.01184 14.1016 5.27344C14.1016 7.53504 12.2616 9.375 10 9.375Z"
+                                                        fill="#141516"></path>
+                                                    <path
+                                                        d="M16.5612 13.992C15.1174 12.5261 13.2035 11.7188 11.1719 11.7188H8.82812C6.79656 11.7188 4.88258 12.5261 3.43883 13.992C2.00215 15.4507 1.21094 17.3763 1.21094 19.4141C1.21094 19.7377 1.47328 20 1.79688 20H18.2031C18.5267 20 18.7891 19.7377 18.7891 19.4141C18.7891 17.3763 17.9979 15.4507 16.5612 13.992ZM2.40859 18.8281C2.70215 15.5045 5.46918 12.8906 8.82812 12.8906H11.1719C14.5308 12.8906 17.2979 15.5045 17.5914 18.8281H2.40859Z"
+                                                        fill="#141516"></path>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="input-block mb-16">
+                                                <input type="email" id="mail" name="email" class="form-control"
+                                                    placeholder="您的电子邮箱" required="">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                                    viewbox="0 0 20 20" fill="none">
+                                                    <path
+                                                        d="M18.2422 2.96875H1.75781C0.786602 2.96875 0 3.76023 0 4.72656V15.2734C0 16.2455 0.792383 17.0312 1.75781 17.0312H18.2422C19.2053 17.0312 20 16.2488 20 15.2734V4.72656C20 3.76195 19.2165 2.96875 18.2422 2.96875ZM17.996 4.14062C17.6369 4.49785 11.4564 10.6458 11.243 10.8581C10.9109 11.1901 10.4695 11.3729 10 11.3729C9.53047 11.3729 9.08906 11.1901 8.75594 10.857C8.61242 10.7142 2.50012 4.63414 2.00398 4.14062H17.996ZM1.17188 15.0349V4.96582L6.23586 10.0031L1.17188 15.0349ZM2.00473 15.8594L7.06672 10.8296L7.9284 11.6867C8.48176 12.2401 9.21746 12.5448 10 12.5448C10.7825 12.5448 11.5182 12.2401 12.0705 11.6878L12.9333 10.8296L17.9953 15.8594H2.00473ZM18.8281 15.0349L13.7641 10.0031L18.8281 4.96582V15.0349Z"
+                                                        fill="#141516"></path>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <textarea name="message" id="comment" cols="30" rows="5"
+                                                class="form-control form-control-nav mb-16"
+                                                placeholder="留下您的评论"></textarea>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="cus-checkBox mb-24">
+                                                <input type="checkbox" id="saver" checked="">
+                                                <label for="saver">在此网站中保存我的姓名、电子邮件和网站，以便下次我评论时使用。</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <button type="submit" class="cus-btn">
+                                                <span class="cus-btn-parent small-padding">
+                                                    <span class="cus-btn-slide"></span>
+                                                    <span class="btn-text">评论</span>
+                                                </span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+
+                                <h5 class="mb-32" id="comment_counts">3 Comments</h5>
+                                <div id="comment_div">
+                                    <div class="review-block mb-24" ">
+                                    <div class=" image-box">
+                                        <img src="static/picture/user-4.png" alt="">
+                                    </div>
+                                    <div class="text-box">
+                                        <div class="mb-16">
+                                            <div class="d-flex align-items-center justify-content-between">
+                                                <p class="medium-gray mb-8">24 June, 2024</p>
+                                                <a href="" class="reply-btn fw-500">Reply</a>
+                                            </div>
+                                            <h6 class="">George Patel</h6>
+                                        </div>
+                                        <p class="medium-gray">Lorem ipsum dolor sit amet consectetur. Lectus massa
+                                            massa et nisl ornare amet sed.
+                                            Venenatis egestas massa pharetra nunc quam urna donec in. Quis non a
+                                            tincidunt tortor commodo. Tristique facilisi
+                                            sapien est elementum fringilla dignissim.</p>
+
+                                    </div>
+                                </div>
+                                <div class="review-block block-2 mb-32">
+                                    <div class="image-box">
+                                        <img src="static/picture/user-5.png" alt="">
+                                    </div>
+                                    <div class="text-box">
+                                        <div class="mb-16">
+                                            <div class="d-flex align-items-center justify-content-between">
+                                                <p class="medium-gray mb-8">24 June, 2024</p>
+                                                <a href="" class="reply-btn fw-500">Reply</a>
+                                            </div>
+                                            <h6 class="">Emma Grace</h6>
+                                        </div>
+                                        <p class="medium-gray mb-16">Lorem ipsum dolor sit amet consectetur. Lectus
+                                            massa massa et nisl ornare amet sed.
+                                            Venenatis egestas massa pharetra nunc quam urna donec in.</p>
+                                    </div>
+                                </div>
+                                <div class="review-block">
+                                    <div class="image-box">
+                                        <img src="static/picture/user-6.png" alt="">
+                                    </div>
+                                    <div class="text-box">
+                                        <div class="mb-16">
+                                            <div class="d-flex align-items-center justify-content-between">
+                                                <p class="medium-gray mb-8">24 June, 2024</p>
+                                                <a href="" class="reply-btn fw-500">Reply</a>
+                                            </div>
+                                            <h6 class="">Sophia Marie</h6>
+                                        </div>
+                                        <p class="medium-gray">Lorem ipsum dolor sit amet consectetur. Lectus massa
+                                            massa et nisl ornare amet sed. Venenatis egestas massa pharetra
+                                            nunc quam urna donec in. Quis non a tincidunt tortor commodo.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- REVIEW AREA -->
+                    </div>
+                </div>
+                <div class="col-xl-4 order-xl-2 order-1">
+                    <div class="blog-sidebar">
+                        <form action="index.html" method="post" class="sidebar-input mb-24">
+                            <input type="text" class="form-control" name="search" id="searchInput" placeholder="搜索...">
+                            <button type="submit">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewbox="0 0 20 20"
+                                    fill="none">
+                                    <path
+                                        d="M8.11719 0C12.593 0 16.2344 3.64137 16.2344 8.11719C16.2344 10.1445 15.4873 12.0007 14.2539 13.4247L19.8284 18.9998C20.0572 19.2286 20.0572 19.5996 19.8284 19.8284C19.5995 20.0573 19.2286 20.0572 18.9997 19.8284L13.4254 14.2534C12.0012 15.4871 10.1448 16.2344 8.11719 16.2344C3.64137 16.2344 0 12.593 0 8.11719C0 3.64137 3.64137 0 8.11719 0ZM8.11719 15.0625C11.9469 15.0625 15.0625 11.9468 15.0625 8.11719C15.0625 4.28754 11.9468 1.17187 8.11719 1.17187C4.28754 1.17187 1.17188 4.28754 1.17188 8.11719C1.17188 11.9468 4.28754 15.0625 8.11719 15.0625Z"
+                                        fill="#1E1F20"></path>
+                                </svg>
+                            </button>
+                        </form>
+                        <div class="p-16 bg-light-gray br-12 mb-24">
+                            <div class="heading heading-3 mb-32">
+                                <h5>最近文章</h5>
+                            </div>
+                            <a href="#" class="blog-sidebar-block mb-16" id="recently_article1">
+                                <div class="img-block">
+                                    <img src="static/picture/sidebar-1.png" alt="" id="recently_img1">
+                                </div>
+                                <div class="text-block">
+                                    <p class="medium-gray mb-8" id="update_time_cid1">24 June, 2024 &nbsp; • &nbsp;
+                                        Nature</p>
+                                    <p class="fw-500" id="recently_article_title1">Tools and Technologies for E-Learning
+                                    </p>
+                                </div>
+                            </a>
+                            <a href="#" class="blog-sidebar-block mb-16" id="recently_article2">
+                                <div class="img-block">
+                                    <img src="static/picture/sidebar-2.png" alt="" id="recently_img2">
+                                </div>
+                                <div class="text-block">
+                                    <p class="medium-gray mb-8" id="update_time_cid2">24 June, 2024 &nbsp; • &nbsp;
+                                        History</p>
+                                    <p class="fw-500" id="recently_article_title2">Tools and Technologies for E-Learning
+                                    </p>
+                                </div>
+                            </a>
+                            <a href="#" class="blog-sidebar-block" id="recently_article3">
+                                <div class="img-block">
+                                    <img src="static/picture/sidebar-3.png" alt="" id="recently_img3">
+                                </div>
+                                <div class="text-block">
+                                    <p class="medium-gray mb-8" id="update_time_cid3">24 June, 2024 &nbsp; • &nbsp;
+                                        Nature</p>
+                                    <p class="fw-500" id="recently_article_title3">Tools and Technologies for E-Learning
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="category mb-24">
+                            <div class="heading heading-3 mb-32">
+                                <h5>分类</h5>
+                            </div>
+                            <a href="#" class="category-block mb-12" id="category_link1">
+                                <div class="image-block">
+                                    <img src="static/picture/category-1.png" alt="">
+                                    <h6 class="fw-500" id="category_name1">Life Style</h6>
+                                </div>
+                                <div class="number-box">
+                                    <p class="black fw-500" id="category-1">20</p>
+                                </div>
+                            </a>
+                            <a href="#" class="category-block mb-12 category-2" id="category_link2">
+                                <div class="image-block">
+                                    <img src="static/picture/category-2.png" alt="">
+                                    <h6 class="fw-500" id="category_name2">Food</h6>
+                                </div>
+                                <div class="number-box">
+                                    <p class="black fw-500" id="category-2">20</p>
+                                </div>
+                            </a>
+                            <a href="#" class="category-block mb-12 category-3" id="category_link1">
+                                <div class="image-block">
+                                    <img src="static/picture/category-3.png" alt="">
+                                    <h6 class="fw-500" id="category_name3">Racing</h6>
+                                </div>
+                                <div class="number-box">
+                                    <p class="black fw-500" id="category-3">20</p>
+                                </div>
+                            </a>
+                            <a href="#" class="category-block category-4" id="category_link4">
+                                <div class="image-block">
+                                    <img src="static/picture/category-4.png" alt="">
+                                    <h6 class="fw-500" id="category_name4">Technology</h6>
+                                </div>
+                                <div class="number-box">
+                                    <p class="black fw-500" id="category-4">20</p>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="tags-container mb-24">
+                            <div class="heading heading-3 mb-32">
+                                <h5>关键词</h5>
+                            </div>
+                            <ul class="list-unstyled" id="tags">
+                                <li>
+                                    <a href="">Events</a>
+                                </li>
+                                <li>
+                                    <a href="">Nature</a>
+                                </li>
+                                <li>
+                                    <a href="">Health</a>
+                                </li>
+                                <li>
+                                    <a href="">Food</a>
+                                </li>
+                                <li>
+                                    <a href="">History</a>
+                                </li>
+                                <li>
+                                    <a href="">Lifestyle</a>
+                                </li>
+                                <li>
+                                    <a href="">News</a>
+                                </li>
+                                <li>
+                                    <a href="">Technology</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="promotional-banner mb-24">
+                            <div class="banner-text text-center">
+                                <h5 class="color-sec fw-700 mb-12 fst-italic">20% OFF</h5>
+                                <h3 class="fw-700 white mb-20">Apple MacBook Air</h3>
+                                <a href="" class="cus-btn-2">
+                                    <span class="cus-btn-parent small-padding">
+                                        <span class="cus-btn-slide"></span>
+                                        <span class="btn-text">Shop Now</span>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="newsletter-container p-16 bg-light-gray br-12 mb-24">
+                            <h5 class="black mb-8">订阅我们的 <span class="color-sec text-decoration-underline">专栏</span>
+                            </h5>
+                            <p class="mb-24">随时了解我们最新的文章</p>
+                            <form method="post" class="newsletter-form">
+                                <input type="email" class="form-control form-control-nav bg-transparent"
+                                    placeholder="输入您的邮箱">
+                                <button type="submit">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewbox="0 0 20 20"
+                                        fill="none">
+                                        <path
+                                            d="M19.8283 0.171647C19.6625 0.00586635 19.4138 -0.0451101 19.1963 0.041921L0.368218 7.57308C0.152789 7.65925 0.00853097 7.86441 0.00024974 8.09632C-0.00799243 8.32819 0.121382 8.54308 0.330132 8.64433L7.75465 12.2451L11.3555 19.6697C11.4537 19.8722 11.6588 19.9999 11.8826 19.9999C11.8895 19.9999 11.8965 19.9998 11.9035 19.9995C12.1353 19.9913 12.3406 19.847 12.4267 19.6316L19.9579 0.803599C20.045 0.585943 19.994 0.337389 19.8283 0.171647ZM2.03478 8.16862L16.9811 2.19016L8.07371 11.0974L2.03478 8.16862ZM11.8312 17.9651L8.90234 11.926L17.8097 3.01875L11.8312 17.9651Z"
+                                            fill="#1E1F20"></path>
+                                    </svg>
+                                </button>
+                            </form>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+            </footer>
+            <!-- INSTAGRAM LINK LINKS IMAGES -->
+             
+
+    </div>
+    <!-- Main Wrapper End -->
+
+    <!-- Back To Top Start -->
+    <button class="scrollToTopBtn"><i class="fa fa-arrow-up"></i></button>
+
+
+    <!-- Mobile Menu Start -->
+    <div class="mobile-nav__wrapper">
+        <div class="mobile-nav__overlay mobile-nav__toggler"></div>
+        <div class="mobile-nav__content">
+            <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
+            <div class="logo-box">
+                <a href="index.html" aria-label="logo image"><img src="static/picture/logo.png" alt=""></a>
+            </div>
+            <div class="mobile-nav__container"></div>
+            <ul class="mobile-nav__contact list-unstyled">
+                <li>
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:example@company.com">example@company.com</a>
+                </li>
+                <li>
+                    <i class="fa fa-phone-alt"></i>
+                    <a href="tel:+12345678">+123 (4567) -890</a>
+                </li>
+            </ul>
+            <div class="mobile-nav__social">
+                <a href=""><i class="fa-brands fa-x-twitter"></i></a>
+                <a href=""><i class="fab fa-facebook"></i></a>
+                <a href=""><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+    <!-- Mobile Menu End -->
+    <style>
+        #avatar {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #007bff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        #avatar:hover {
+            transform: scale(1.05);
+        }
+    </style>
+
+    <!-- Jquery Js -->
+    <script src="static/js/bootstrap.min.js"></script>
+    <script src="static/js/jquery-3.6.3.min.js"></script>
+    <script src="static/js/slick.min.js"></script>
+    <script src="static/js/jquery-validator.js"></script>
+    <script src="static/js/app.js"></script>
+    <script src="static/js/get_one_article.js"></script>
+    <script src="static/js/user_icon.js"></script>
+    <script src="static/js/fuzzySearch.js"></script>
+</body>
+
+</html>

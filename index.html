@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="文章管理系统">
+
+    <title>文章管理系统</title>
+
+    <!-- 网站图标 -->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/media/favicon.png">
+
+    <!-- 所有CSS文件 -->
+    <link rel="stylesheet" href="static/css/font-awesome.css">
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/slick.css">
+    <link rel="stylesheet" href="static/css/slick-theme.css">
+    <link rel="stylesheet" href="static/css/app.css">
+
+</head>
+
+<body class="tt-smooth-scroll">
+
+    <!-- 预加载器 -->
+    <div id="preloader">
+        <div class="loader">
+            <div class="loader-square"></div>
+            <div class="loader-square"></div>
+            <div class="loader-square"></div>
+            <div class="loader-square"></div>
+            <div class="loader-square"></div>
+            <div class="loader-square"></div>
+            <div class="loader-square"></div>
+        </div>
+    </div>
+    <!-- 预加载器结束 -->
+
+    <!-- 主包装器开始 -->
+    <div id="scroll-container" class="scroll-container">
+
+        <!-- 头部菜单开始 -->
+        <header class="header">
+            <div class="header-topbar bg-light-gray">
+                <div class="container slider-container">
+                    <div class="header-topbar-wrapper">
+                        <div class="breaking-news">
+                            <p class="lead white">突发新闻</p>
+                        </div>
+                        <div>
+                            <div class="breaking-news-slider">
+                                <div class="news-text">
+                                    <p class="fw-500 black">20241159108</p>
+                                    <p class="fw-500">SX </p>
+                                </div>
+                                <div class="news-text">
+                                    <p class="fw-500 black">20241159108</p>
+                                    <p class="fw-500">SX </p>
+                                </div>
+                                <div class="news-text">
+                                    <p class="fw-500 black">20241159108</p>
+                                    <p class="fw-500">SX </p>
+                                </div>
+                                <div class="news-text">
+                                    <p class="fw-500 black">20241159108</p>
+                                    <p class="fw-500">SX </p>
+                                </div>
+                                <div class="news-text">
+                                    <p class="fw-500 black">20241159108</p>
+                                    <p class="fw-500">SX </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 右上角社交媒体图标 -->
+                        <div class="social-media-icons d-sm-flex d-none">
+                            <ul class="list-unstyled mb-0">
+                                <li>
+                                    <a href="">
+                                        <img src="static/picture/twitter.png" alt="">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <img src="static/picture/facebook.png" alt="">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <img src="static/picture/instagram.png" alt="">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <img src="static/picture/linkedin.png" alt="">
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 右上角社交媒体图标结束 -->
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <nav class="navigation d-flex align-items-center justify-content-between">
+                    <div class="nav-main-wrapper">
+                        <a href="" class="d-flex align-items-center">
+                            <img src="static/picture/logo.png" alt="/logo" class="header-logo">
+                        </a>
+                    </div>
+                    <div class="main-menu__right">
+                        <div class="search-heart-icon d-sm-flex d-none align-items-center gap-8">
+                            <form id="demo-2">
+                                <input type="search" class="form-control form-control-nav" placeholder="搜索">
+                                <button type="submit">
+                                    <i class="fa-light fa-magnifying-glass"></i>
+                                </button>
+                            </form>
+                            <div class="notification-menu">
+                                <h5 class="mb-24 black">最近的文章（05）</h5>
+                                <ul>
+                                    <li class="pb-16">
+                                        <a href="blog-detail-2.html">
+                                            <div class="d-flex flex-shrink-0 img-block">
+                                                <img src="static/picture/popup-1.png" alt="" class="br-8">
+                                            </div>
+                                            <div class="text-block">
+                                                <p class="fw-500">电子学习的工具和技术</p>
+                                                <p class="medium-gray mb-8">2024年6月24日</p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="py-16 border-list">
+                                        <a href="blog-detail-2.html">
+                                            <div class="d-flex flex-shrink-0 img-block">
+                                                <img src="static/picture/popup-2.png" alt="" class="br-8">
+                                            </div>
+                                            <div class="text-block">
+                                                <p class="fw-500">最大化你的在线学习体验</p>
+                                                <p class="medium-gray mb-8">2024年6月24日</p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="pt-16 mb-24">
+                                        <a href="blog-detail-2.html">
+                                            <div class="d-flex flex-shrink-0 img-block">
+                                                <img src="static/picture/popup-3.png" alt="" class="br-8">
+                                            </div>
+                                            <div class="text-block">
+                                                <p class="fw-500">成功在线学习的顶级技巧</p>
+                                                <p class="medium-gray mb-8">2024年6月24日</p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <a href="blog-list-1.html" class="cus-btn w-100">
+                                    <span class="cus-btn-parent small-padding text-center w-100">
+                                        <span class="cus-btn-slide"></span>
+                                        <span class="btn-text">查看全部</span>
+                                    </span>
+                                </a>
+                            </div>
+                            <a href="#" id="login_or_usercent">
+                                <div class="user-icon account">
+                                    <img class="fa-light fa-user" src="" id="avatar">
+                                </div>
+                            </a>
+
+                        </div>
+
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <!-- 头部菜单结束 -->
+
+        <!-- 英雄横幅开始 -->
+        <section class="hero-banner">
+            <div class="hero-slider w-100 h-100" style="height: 40vh; width: 80vw;">
+                <div class="hero-slide w-screen vw-100 vh-100">
+                    <div class="hero-slide__img w-100 h-100">
+                        <img src="static/picture/hero-banner.png" alt=""
+                            class=" w-100 h-100 animated d-sm-block d-none">
+                        <img src="static/picture/hero-mobile-1.png" alt=""
+                            class=" w-100 h-100 animated d-sm-none d-block">
+                    </div>
+                    <div class="hero-slide__content text-center">
+                        <div class="hero-slide__content--headings text-center mb-16">
+                            <div class="d-flex align-items-center justify-content-center gap-12">
+                                <div class="tag-label">
+                                    新闻
+                                </div>
+                                <div class="tag-label">
+                                    自然
+                                </div>
+                            </div>
+                        </div>
+                        <div class="blog-info justify-content-center mb-16">
+                            <div class="author">
+                                <img src="static/picture/auth.jpg" alt="" style="height: 20px;width: 20px;">
+                                <p class="white">SX</p>
+                            </div>
+                            <div class="vr-line"></div>
+                            <div class="date-time">
+                                <div class="icon-box">
+                                    <img src="static/picture/calender.png" alt="">
+                                </div>
+                                <p class="white" id="time">2024年6月24日</p>
+                            </div>
+                            <div class="vr-line"></div>
+                            <div class="date-time">
+                                <div class="icon-box">
+                                    <img src="static/picture/clock.png" alt="">
+                                </div>
+                                <p class="white">阅读时间5分钟</p>
+                            </div>
+                        </div>
+                        <h1 class="white fw-600 mb-16">电子学习成功的终极指南<br class="d-xl-block d-none"></h1>
+                        <p class="white mb-24">Lorem ipsum dolor sit amet consectetur. Commodo sagittis feugiat sodales
+                            <br class="d-sm-block d-none"> ridiculus nulla varius. Luctus
+                            sit vitae quam mauris magn.
+                        </p>
+
+                        <a href="blog-detail-1.html" class="cus-btn">
+                            <span class="cus-btn-parent">
+                                <span class="cus-btn-slide"></span>
+                                <span class="btn-text">阅读更多</span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-slide w-screen vw-100 vh-100">
+                    <div class="hero-slide__img w-100 h-100">
+                        <img src="static/picture/hero-banner-2.png" alt=""
+                            class=" w-100 h-100 animated d-sm-block d-none">
+                        <img src="static/picture/hero-mobile-2.png" alt=""
+                            class=" w-100 h-100 animated d-sm-none d-block">
+                    </div>
+                    <div class="hero-slide__content text-center">
+                        <div class="hero-slide__content--headings text-center mb-16">
+                            <div class="d-flex align-items-center justify-content-center gap-12">
+                                <div class="tag-label">
+                                    新闻
+                                </div>
+                                <div class="tag-label">
+                                    自然
+                                </div>
+                            </div>
+                        </div>
+                        <div class="blog-info justify-content-center mb-16">
+                            <div class="author">
+                                <img src="static/picture/user-1.png" alt="">
+                                <p class="white">SX</p>
+                            </div>
+                            <div class="vr-line"></div>
+                            <div class="date-time">
+                                <div class="icon-box">
+                                    <img src="static/picture/calender.png" alt="">
+                                </div>
+                                <p class="white" id="time">2024年6月24日</p>
+                            </div>
+                            <div class="vr-line"></div>
+                            <div class="date-time">
+                                <div class="icon-box">
+                                    <img src="static/picture/clock.png" alt="">
+                                </div>
+                                <p class="white">阅读时间5分钟</p>
+                            </div>
+                        </div>
+                        <h1 class="white fw-600 mb-16">塑造可再生能源未来的创新<br class="d-xl-block d-none"></h1>
+                        <p class="white mb-24">Lorem ipsum dolor sit amet consectetur. Commodo sagittis feugiat sodales
+                            <br class="d-sm-block d-none"> ridiculus nulla varius. Luctus
+                            sit vitae quam mauris magn.
+                        </p>
+
+                        <a href="blog-detail-1.html" class="cus-btn">
+                            <span class="cus-btn-parent">
+                                <span class="cus-btn-slide"></span>
+                                <span class="btn-text">阅读更多</span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-slide w-screen vw-100 vh-100">
+                    <div class="hero-slide__img w-100 h-100">
+                        <img src="static/picture/hero-banner-3.png" alt=""
+                            class=" w-100 h-100 animated d-sm-block d-none">
+                        <img src="static/picture/hero-mobile-3.png" alt=""
+                            class=" w-100 h-100 animated d-sm-none d-block">
+                    </div>
+                    <div class="hero-slide__content text-center">
+                        <div class="hero-slide__content--headings text-center mb-16">
+
+                        </div>
+                        <div class="d-flex align-items-center justify-content-center gap-12">
+                            <div class="tag-label">
+                                新闻
+                            </div>
+                            <div class="tag-label">
+                                自然
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blog-info justify-content-center mb-16">
+                        <div class="author">
+                            <img src="static/picture/user-1.png" alt="">
+                            <p class="white">亚当·布朗</p>
+                        </div>
+                        <div class="vr-line"></div>
+                        <div class="date-time">
+                            <div class="icon-box">
+                                <img src="static/picture/calender.png" alt="">
+                            </div>
+                            <p class="white">2024年6月24日</p>
+                        </div>
+                        <div class="vr-line"></div>
+                        <div class="date-time">
+                            <div class="icon-box">
+                                <img src="static/picture/clock.png" alt="">
+                            </div>
+                            <p class="white">阅读时间5分钟</p>
+                        </div>
+                    </div>
+                    <h1 class="white fw-600 mb-16">天文学领域的最新发现与奇迹<br class="d-xl-block d-none"></h1>
+                    <p class="white mb-24">Lorem ipsum dolor sit amet consectetur. Commodo sagittis feugiat sodales
+                        <br class="d-sm-block d-none"> ridiculus nulla varius. Luctus
+                        sit vitae quam mauris magn.
+                    </p>
+
+                    <a href="blog-detail-1.html" class="cus-btn">
+                        <span class="cus-btn-parent">
+                            <span class="cus-btn-slide"></span>
+                            <span class="btn-text">阅读更多</span>
+                        </span>
+                    </a>
+                </div>
+            </div>
+    </div>
+    </section>
+    <!-- 英雄横幅结束 -->
+
+    <!-- 分类开始 -->
+    <section class="category-section py-40">
+        <div class="container">
+            <div class="heading mb-48">
+                <h2 class="fw-700 black">分类</h2>
+            </div>
+            <div class="row row-gap-4">
+                <div class="col-xl-3 col-lg-4 col-md-6">
+                    <a href="#" class="category-block" id="category_link1">
+                        <div class="image-block">
+                            <img src="static/picture/category-1.png" alt="">
+                            <h6 class="fw-500" id="category_name1">生活方式</h6>
+                        </div>
+                        <div class="number-box">
+                            <p class="black fw-500" id="category-1">20</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-6">
+                    <a href="#" class="category-block category-2" id="category_link2">
+                        <div class="image-block">
+                            <img src="static/picture/category-2.png" alt="">
+                            <h6 class="fw-500" id="category_name2">美食</h6>
+                        </div>
+                        <div class="number-box">
+                            <p class="black fw-500" id="category-2">20</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-6">
+                    <a href="#" class="category-block category-3" id="category_link3">
+                        <div class="image-block">
+                            <img src="static/picture/category-3.png" alt="">
+                            <h6 class="fw-500" id="category_name3">赛车</h6>
+                        </div>
+                        <div class="number-box">
+                            <p class="black fw-500" id="category-3">20</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-6">
+                    <a href="#" class="category-block category-4" id="category_link4">
+                        <div class="image-block">
+                            <img src="static/picture/category-4.png" alt="">
+                            <h6 class="fw-500" id="category_name4">科技</h6>
+                        </div>
+                        <div class="number-box">
+                            <p class="black fw-500" id="category-4">20</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-6">
+                    <a href="#" class="category-block category-5" id="category_link5">
+                        <div class="image-block">
+                            <img src="static/picture/category-5.png" alt="">
+                            <h6 class="fw-500" id="category_name5">运动</h6>
+                        </div>
+                        <div class="number-box">
+                            <p class="black fw-500" id="category-5">20</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-6">
+                    <a href="#" id="category_link6" class="category-block category-6">
+                        <div class="image-block">
+                            <img src="static/picture/category-6.png" alt="">
+                            <h6 class="fw-500" id="category_name6">旅行</h6>
+                        </div>
+                        <div class="number-box">
+                            <p class="black fw-500" id="category-6">20</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-6">
+                    <a href="#" class="category-block category-7" id="category_link7">
+                        <div class="image-block">
+                            <img src="static/picture/category-7.png" alt="">
+                            <h6 class="fw-500" id="category_name7">游泳</h6>
+                        </div>
+                        <div class="number-box">
+                            <p class="black fw-500" id="category-7">20</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-6">
+                    <a href="#" class="category-block category-8" id="category_link8">
+                        <div class="image-block">
+                            <img src="static/picture/category-8.png" alt="">
+                            <h6 class="fw-500" id="category_name8">世界</h6>
+                        </div>
+                        <div class="number-box">
+                            <p class="black fw-500" id="category-8">20</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 博客时间轴滑块开始 -->
+    <section class="blog-timeline-section py-40">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-6 col-lg-6 col-md-6">
+                    <div class="slider-wrap">
+                        <div class="blog-timeline-slider-asnav">
+
+                            <div class="blog-slide">
+
+                                <div class="number">
+                                    <h3 class="black">01</h3>
+                                </div>
+                                <div class="blog-content mb-24">
+                                    <div class="tag-label mb-16">
+                                        热门
+                                    </div>
+                                    <h4 class="fw-600 mb-16" id="hot-title1">揭秘高效时间管理的秘诀</h4>
+                                    <div class="mb-16">
+                                        <p class="medium-gray" id="data-auth1">2024年6月24日 &nbsp; • &nbsp; 作者：亚当·布朗</p>
+                                    </div>
+                                    <a href="blog-detail-1.html" class="cus-btn" id="article_url1">
+                                        <span class="cus-btn-parent small-padding">
+                                            <span class="cus-btn-slide"></span>
+                                            <span class="btn-text">阅读更多</span>
+                                        </span>
+                                    </a>
+
+                                </div>
+                                <div class="slider-progress">
+                                    <span></span>
+                                </div>
+                            </div>
+                            <div class="blog-slide">
+                                <div class="number">
+                                    <h3 class="black">02</h3>
+                                </div>
+                                <div class="blog-content mb-24">
+                                    <div class="tag-label mb-16">
+                                        热门
+                                    </div>
+                                    <h4 class="fw-600 mb-16" id="hot-title2">科技的未来：塑造明天的趋势</h4>
+                                    <div class="mb-16">
+                                        <p class="medium-gray" id="data-auth2">2024年6月24日 &nbsp; • &nbsp; 作者：亚当·布朗</p>
+                                    </div>
+                                    <a href="blog-detail-1.html" class="cus-btn" id="article_url2">
+                                        <span class="cus-btn-parent small-padding">
+                                            <span class="cus-btn-slide"></span>
+                                            <span class="btn-text">阅读更多</span>
+                                        </span>
+                                    </a>
+                                </div>
+                                <div class="slider-progress">
+                                    <span></span>
+                                </div>
+                            </div>
+                            <div class="blog-slide">
+                                <div class="number">
+                                    <h3 class="black">03</h3>
+                                </div>
+                                <div class="blog-content mb-24">
+                                    <div class="tag-label mb-16">
+                                        热门
+                                    </div>
+                                    <h4 class="fw-600 mb-16" id="hot-title3">探索可持续实践对我们星球的影响</h4>
+                                    <div class="mb-16">
+                                        <p class="medium-gray" id="data-auth3">2024年6月24日 &nbsp; • &nbsp; 作者：亚当·布朗</p>
+                                    </div>
+                                    <a href="blog-detail-1.html" class="cus-btn" id="article_url3">
+                                        <span class="cus-btn-parent small-padding">
+                                            <span class="cus-btn-slide"></span>
+                                            <span class="btn-text">阅读更多</span>
+                                        </span>
+                                    </a>
+                                </div>
+                                <div class="slider-progress">
+                                    <span></span>
+                                </div>
+                            </div>
+                            <div class="blog-slide">
+                                <div class="number">
+                                    <h3 class="black">04</h3>
+                                </div>
+                                <div class="blog-content mb-24">
+                                    <div class="tag-label mb-16">
+                                        热门
+                                    </div>
+                                    <h4 class="fw-600 mb-16" id="hot-title4">为电子学习调整传统教学方法</h4>
+                                    <div class="mb-16">
+                                        <p class="medium-gray" id="data-auth4">2024年6月24日 &nbsp; • &nbsp; 作者：亚当·布朗</p>
+                                    </div>
+                                    <a href="blog-detail-1.html" class="cus-btn" id="article_url4">
+                                        <span class="cus-btn-parent small-padding">
+                                            <span class="cus-btn-slide"></span>
+                                            <span class="btn-text">阅读更多</span>
+                                        </span>
+                                    </a>
+                                </div>
+                                <div class="slider-progress">
+                                    <span></span>
+                                </div>
+                            </div>
+                            <div class="blog-slide">
+                                <div class="number">
+                                    <h3 class="black">05</h3>
+                                </div>
+                                <div class="blog-content mb-24">
+                                    <div class="tag-label mb-16">
+                                        热门
+                                    </div>
+                                    <h4 class="fw-600 mb-16" id="hot-title5">科技的未来：塑造明天的趋势</h4>
+                                    <div class="mb-16">
+                                        <p class="medium-gray" id="data-auth5">2024年6月24日 &nbsp; • &nbsp; 作者：亚当·布朗</p>
+                                    </div>
+                                    <a href="blog-detail-1.html" class="cus-btn" id="article_url5">
+                                        <span class="cus-btn-parent small-padding">
+                                            <span class="cus-btn-slide"></span>
+                                            <span class="btn-text">阅读更多</span>
+                                        </span>
+                                    </a>
+                                </div>
+                                <div class="slider-progress">
+                                    <span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6">
+                    <div class="blog-timeline-slider">
+                        <a href="blog-detail-1.html" class="timeline-image">
+                            <img src="static/picture/timeline-image-1.png" class="br-12" alt="" id="hot-img1">
+                        </a>
+                        <a href="blog-detail-1.html" class="timeline-image">
+                            <img src="static/picture/timeline-image-6.png" class="br-12" alt="" id="hot-img2">
+                        </a>
+                        <a href="blog-detail-1.html" class="timeline-image">
+                            <img src="static/picture/timeline-image-3.png" class="br-12" alt="" id="hot-img3">
+                        </a>
+                        <a href="blog-detail-1.html" class="timeline-image">
+                            <img src="static/picture/timeline-image-4.png" class="br-12" alt="" id="hot-img4">
+                        </a>
+                        <a href="blog-detail-1.html" class="timeline-image">
+                            <img src="static/picture/timeline-image-5.png" class="br-12" alt="" id="
+                            hot-img5">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 博客时间轴滑块结束 -->
+
+    <!-- 广告横幅开始 -->
+    <section class="advertisment-section py-40">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="ad-container">
+                        <div class="d-flex align-items-center gap-24">
+                            <div class="ad-size text-end">
+                                <h5 class="white fw-500">广告</h5>
+                                <p class="white fw-500">856x100</p>
+                            </div>
+                            <div class="vr-line"></div>
+                            <div class="text">
+                                <p class="fw-500 white">与随机旅行团一起探索世界，<br class="d-sm-block d-none">
+                                    您的冒险等待着您！</p>
+                            </div>
+                        </div>
+                        <a href="blog-standard-1.html" class="cus-btn">
+                            <span class="cus-btn-parent small-padding">
+                                <span class="cus-btn-slide"></span>
+                                <span class="btn-text">阅读更多</span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 广告横幅结束 -->
+
+
+
+
+
+    <!-- 广告横幅开始 -->
+    <section class="advertisment-section py-40">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="ad-container banner-2">
+                        <div class="d-flex align-items-center gap-24">
+                            <div class="ad-size text-end">
+                                <h5 class="white fw-500">广告</h5>
+                                <p class="white fw-500">856x100</p>
+                            </div>
+                            <div class="vr-line"></div>
+                            <div class="text">
+                                <p class="fw-500 white">与随机旅行团一起探索世界，<br class="d-sm-block d-none">
+                                    您的冒险等待着您！</p>
+                            </div>
+                        </div>
+                        <a href="blog-standard-1.html" class="cus-btn">
+                            <span class="cus-btn-parent small-padding">
+                                <span class="cus-btn-slide"></span>
+                                <span class="btn-text">立即购买</span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 广告横幅结束 -->
+
+
+
+
+    </div>
+    <!-- 主包装器结束 -->
+
+    <!-- 回到顶部按钮 -->
+    <button class="scrollToTopBtn"><i class="fa fa-arrow-up"></i></button>
+
+    <!-- 移动菜单开始 -->
+    <div class="mobile-nav__wrapper">
+        <div class="mobile-nav__overlay mobile-nav__toggler"></div>
+        <div class="mobile-nav__content">
+            <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
+            <div class="logo-box">
+                <a href="" aria-label="logo image"><img src="static/picture/logo.png" alt=""></a>
+            </div>
+            <div class="mobile-nav__container"></div>
+            <ul class="mobile-nav__contact list-unstyled">
+                <li>
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:example@company.com">example@company.com</a>
+                </li>
+                <li>
+                    <i class="fa fa-phone-alt"></i>
+                    <a href="tel:+12345678">+123 (4567) -890</a>
+                </li>
+            </ul>
+            <div class="mobile-nav__social">
+                <a href=""><i class="fa-brands fa-x-twitter"></i></a>
+                <a href=""><i class="fab fa-facebook"></i></a>
+                <a href=""><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+    <!-- 移动菜单结束 -->
+    <style>
+        #avatar {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #007bff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        #avatar:hover {
+            transform: scale(1.05);
+        }
+    </style>
+
+    <!-- JavaScript文件 -->
+    <script src="static/js/bootstrap.min.js"></script>
+    <script src="static/js/jquery-3.6.3.min.js"></script>
+    <script src="static/js/slick.min.js"></script>
+    <script src="static/js/video.js"></script>
+    <script src="static/js/app.js"></script>
+    <script src="static/js/diy.js"></script>
+    <script src="static/js/article.js"></script>
+    <script src="static/js/user_icon.js"></script>
+    <script src="static/js/fuzzySearch.js"></script>
+
+</body>
+
+</html>

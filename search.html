@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="博客洞察 || 博客/杂志HTML模板">
+
+    <title>搜索结果</title>
+
+    <!-- 网站图标 -->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/media/favicon.png">
+
+    <!-- 所有CSS文件 -->
+    <link rel="stylesheet" href="static/css/font-awesome.css">
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/slick.css">
+    <link rel="stylesheet" href="static/css/slick-theme.css">
+    <link rel="stylesheet" href="static/css/app.css">
+    <link rel="stylesheet" type="text/css" href="http://css.huangwx.cn/css/sweetalert.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+
+<body class="tt-smooth-scroll">
+
+    <!-- 预加载器 -->
+    <div id="preloader">
+        <div class="loader">
+            <div class="loader-square"></div>
+            <div class="loader-square"></div>
+            <div class="loader-square"></div>
+            <div class="loader-square"></div>
+            <div class="loader-square"></div>
+            <div class="loader-square"></div>
+            <div class="loader-square"></div>
+        </div>
+    </div>
+    <!-- 预加载器结束 -->
+
+    <!-- 主容器开始 -->
+    <div id="scroll-container" class="scroll-container">
+
+        <!-- 头部菜单开始 -->
+        <header class="header mb-16">
+            <div class="header-topbar bg-light-gray">
+                <div class="container slider-container">
+                    <div class="header-topbar-wrapper">
+                        <div class="breaking-news">
+                            <p class="lead white">突发新闻</p>
+                        </div>
+                        <div>
+                            <div class="breaking-news-slider">
+                                <div class="news-text">
+                                    <p class="fw-500 black">20241159108</p>
+                                    <p class="fw-500">SX</p>
+                                </div>
+                                <div class="news-text">
+                                    <p class="fw-500 black">20241159108</p>
+                                    <p class="fw-500">SX</p>
+                                </div>
+                                <div class="news-text">
+                                    <p class="fw-500 black">20241159108</p>
+                                    <p class="fw-500">SX</p>
+                                </div>
+                                <div class="news-text">
+                                    <p class="fw-500 black">20241159108</p>
+                                    <p class="fw-500">SX</p>
+                                </div>
+                                <div class="news-text">
+                                    <p class="fw-500 black">20241159108</p>
+                                    <p class="fw-500">SX</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="social-media-icons d-sm-flex d-none">
+                            <ul class="list-unstyled mb-0">
+                                <li>
+                                    <a href="">
+                                        <img src="static/picture/twitter.png" alt="">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <img src="static/picture/facebook.png" alt="">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <img src="static/picture/instagram.png" alt="">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <img src="static/picture/linkedin.png" alt="">
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <nav class="navigation d-flex align-items-center justify-content-between">
+                    <div class="nav-main-wrapper">
+                        <a href="index.html" class="d-flex align-items-center">
+                            <img src="static/picture/logo.png" alt="/logo" class="header-logo">
+                        </a>
+
+                        <div class="main-menu__right">
+                            <div class="search-heart-icon d-sm-flex d-none align-items-center gap-8">
+                                <form id="demo-2">
+                                    <input type="search" class="form-control form-control-nav" placeholder="搜索">
+                                    <button type="submit">
+                                        <i class="fa-light fa-magnifying-glass"></i>
+                                    </button>
+                                </form>
+                                <div class="user-icon notification">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewbox="0 0 20 20"
+                                        fill="none">
+                                        <path
+                                            d="M16.0547 10.268V8.39844C16.0547 5.67102 14.2418 3.35934 11.7579 2.6043V1.75781C11.7579 0.788555 10.9693 0 10 0C9.03079 0 8.24223 0.788555 8.24223 1.75781V2.6043C5.75825 3.35934 3.94536 5.67098 3.94536 8.39844V10.268C3.94536 12.6638 3.03216 14.9355 1.37399 16.6648C1.21149 16.8342 1.16583 17.0843 1.25794 17.3002C1.35005 17.5161 1.56216 17.6562 1.79692 17.6562H7.1293C7.40149 18.9919 8.58524 20 10 20C11.4149 20 12.5986 18.9919 12.8708 17.6562H18.2032C18.4379 17.6562 18.65 17.5161 18.7421 17.3002C18.8342 17.0843 18.7886 16.8342 18.6261 16.6648C16.9679 14.9355 16.0547 12.6638 16.0547 10.268ZM9.41411 1.75781C9.41411 1.43473 9.67696 1.17188 10 1.17188C10.3231 1.17188 10.586 1.43473 10.586 1.75781V2.37219C10.3931 2.35359 10.1977 2.34375 10 2.34375C9.80239 2.34375 9.60696 2.35359 9.41411 2.37219V1.75781ZM10 18.8281C9.23618 18.8281 8.58489 18.3382 8.34301 17.6562H11.6571C11.4152 18.3382 10.7639 18.8281 10 18.8281ZM3.05981 16.4844C4.39423 14.6956 5.11723 12.5309 5.11723 10.268V8.39844C5.11723 5.70605 7.30766 3.51562 10 3.51562C12.6924 3.51562 14.8829 5.70605 14.8829 8.39844V10.268C14.8829 12.5309 15.6059 14.6956 16.9403 16.4844H3.05981Z"
+                                            fill="#FAFAFA"></path>
+                                        <path
+                                            d="M17.6172 8.39844C17.6172 8.72203 17.8796 8.98438 18.2032 8.98438C18.5268 8.98438 18.7891 8.72203 18.7891 8.39844C18.7891 6.05078 17.8749 3.84363 16.2148 2.18359C15.9861 1.9548 15.615 1.95477 15.3862 2.18359C15.1574 2.41242 15.1574 2.7834 15.3862 3.01223C16.8249 4.45094 17.6172 6.36379 17.6172 8.39844Z"
+                                            fill="#FAFAFA"></path>
+                                        <path
+                                            d="M1.79692 8.98438C2.12051 8.98438 2.38286 8.72203 2.38286 8.39844C2.38286 6.36383 3.1752 4.45098 4.61387 3.01227C4.8427 2.78344 4.8427 2.41246 4.61387 2.18363C4.38508 1.9548 4.01407 1.9548 3.78524 2.18363C2.1252 3.84367 1.21098 6.05078 1.21098 8.39844C1.21098 8.72203 1.47333 8.98438 1.79692 8.98438Z"
+                                            fill="#FAFAFA"></path>
+                                    </svg>
+                                </div>
+                                <div class="notification-menu">
+                                    <h5 class="mb-24 black">最新文章(05)</h5>
+                                    <ul>
+                                        <li class="pb-16">
+                                            <a href="blog-detail-2.html">
+                                                <div class="d-flex flex-shrink-0 img-block">
+                                                    <img src="static/picture/popup-1.png" alt="" class="br-8">
+                                                </div>
+                                                <div class="text-block">
+                                                    <p class="fw-500">在线学习的工具和技术</p>
+                                                    <p class="medium-gray mb-8">2024年6月24日</p>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="py-16 border-list">
+                                            <a href="blog-detail-2.html">
+                                                <div class="d-flex flex-shrink-0 img-block">
+                                                    <img src="static/picture/popup-2.png" alt="" class="br-8">
+                                                </div>
+                                                <div class="text-block">
+                                                    <p class="fw-500">最大化您的在线学习体验</p>
+                                                    <p class="medium-gray mb-8">2024年6月24日</p>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="pt-16 mb-24"></li>
+                                        <a href="blog-detail-2.html">
+                                            <div class="d-flex flex-shrink-0 img-block">
+                                                <img src="static/picture/popup-3.png" alt="" class="br-8">
+                                            </div>
+                                            <div class="text-block">
+                                                <p class="fw-500">成功在线学习的最佳建议</p>
+                                                <p class="medium-gray mb-8">2024年6月24日</p>
+                                            </div>
+                                        </a>
+                                        </li>
+                                    </ul>
+                                    <a href="blog-list-1.html" class="cus-btn w-100">
+                                        <span class="cus-btn-parent small-padding text-center w-100">
+                                            <span class="cus-btn-slide"></span>
+                                            <span class="btn-text">查看全部</span>
+                                        </span>
+                                    </a>
+                                </div>
+                                <div class="user-icon account">
+                                    <i class="fa-light fa-user"></i>
+                                </div>
+
+                            </div>
+                            <a href="" class="d-xl-none d-flex main-menu__toggler mobile-nav__toggler">
+                                <img src="static/picture/menu-2.png" alt="">
+                            </a>
+                        </div>
+                </nav>
+            </div>
+        </header>
+        <!-- 头部菜单结束 -->
+
+     <!-- 头部菜单结束 -->
+<!-- 搜索结果展示部分开始 -->
+<section class="search-results py-40">
+    <div class="container">
+        <div class="heading mb-48">
+            <h2 class="fw-700 black">搜索结果</h2>
+        </div>
+        <div class="row row-gap-4" id="search-results-container">
+            <!-- 动态加载搜索结果 -->
+        </div>
+        <div class="pagination-container mt-4">
+            <button class="btn btn-primary" id="prev-page" disabled>上一页</button>
+            <span id="page-info" class="mx-3">第 1 页，共 1 页</span>
+            <button class="btn btn-primary" id="next-page">下一页</button>
+        </div>
+    </div>
+</section>
+<!-- 搜索结果展示部分结束 -->
+
+<style>
+    .search-results .card {
+        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    }
+
+    .search-results .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .search-results .card-img-top {
+        height: 200px;
+        object-fit: cover;
+    }
+
+    .search-results .card-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+    }
+
+    .search-results .card-text {
+        font-size: 0.875rem;
+        color: #6c757d;
+    }
+
+    .search-results .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+        transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+    }
+
+    .search-results .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #004085;
+    }
+
+    .pagination-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .pagination-container .btn {
+        border-radius: 50px;
+        padding: 10px 20px;
+    }
+
+    #page-info {
+        font-size: 1rem;
+        font-weight: 500;
+    }
+</style>
+
+
+
+
+
+
+
+    </div>
+    <!-- 主容器结束 -->
+
+    <!-- 返回顶部开始 -->
+    <button class="scrollToTopBtn"><i class="fa fa-arrow-up"></i></button>
+
+
+    <!-- 移动菜单开始 -->
+    <div class="mobile-nav__wrapper">
+        <div class="mobile-nav__overlay mobile-nav__toggler"></div>
+        <div class="mobile-nav__content">
+            <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
+            <div class="logo-box">
+                <a href="index.html" aria-label="logo image"><img src="static/picture/logo.png" alt=""></a>
+            </div>
+            <div class="mobile-nav__container"></div>
+            <ul class="mobile-nav__contact list-unstyled">
+                <li>
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:example@company.com">example@company.com</a>
+                </li>
+                <li>
+                    <i class="fa fa-phone-alt"></i>
+                    <a href="tel:+12345678">+123 (4567) -890</a>
+                </li>
+            </ul>
+            <div class="mobile-nav__social">
+                <a href=""><i class="fa-brands fa-x-twitter"></i></a>
+                <a href=""><i class="fab fa-facebook"></i></a>
+                <a href=""><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+    <!-- 移动菜单结束 -->
+     
+
+    <!-- Jquery JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+    <script src="static/js/jquery-3.6.3.min.js"></script>
+    <script src="static/js/slick.min.js"></script>
+    <script src="static/js/jquery-validator.js"></script>
+    <script src="static/js/app.js"></script>
+    <script src="static/js/register.js"></script>
+    <script src="static/js/fuzzySearch.js"></script>
+</body>
+
+</html>
