@@ -177,7 +177,7 @@
                                 <div class="user-icon account">
                                     <i class="fa-light fa-user"></i>
                                 </div>
-                                
+
                             </div>
                             <a href="" class="d-xl-none d-flex main-menu__toggler mobile-nav__toggler">
                                 <img src="static/picture/menu-2.png" alt="">
@@ -188,157 +188,159 @@
         </header>
         <!-- 头部菜单结束 -->
 
-<!-- 注册账户与头像上传开始 -->
-<section class="my-account py-40">
-    <div class="container">
-        <div class="row row-gap-4 justify-content-center">
-            <div class="col-xl-6">
-                <div class="account p-24 shadow-lg rounded bg-white">
-                    <h2 class="text-primary mb-12 fw-500 text-center">注册账户</h2>
-                    <p class="mb-32 text-center">请上传您的头像并填写以下信息以注册。</p>
-                    
-                    <!-- 用户注册表单 -->
-                    <form id="registerForm" method="post" class="login-form">
-                        
-                        <!-- 用户头像上传 -->
-                        <div class="text-center mb-4">
-                            <div class="avatar-wrapper mx-auto">
-                                <img id="avatar" src="static/picture/user-6.png" alt="用户头像" class="avatar">
-                                <input type="file" id="avatarUpload" accept="image/*" style="display: none;">
-                                <small class="text-muted d-block mt-3">允许上传 jpg, png 格式的图片</small>
-                            </div>
-                        </div>
+        <!-- 注册账户与头像上传开始 -->
+        <section class="my-account py-40">
+            <div class="container">
+                <div class="row row-gap-4 justify-content-center">
+                    <div class="col-xl-6">
+                        <div class="account p-24 shadow-lg rounded bg-white">
+                            <h2 class="text-primary mb-12 fw-500 text-center">注册账户</h2>
+                            <p class="mb-32 text-center">请上传您的头像并填写以下信息以注册。</p>
 
-                        <div class="row">
-                            <!-- 用户名输入 -->
-                            <div class="col-sm-12">
-                                <div class="input-block mb-24">
-                                    <input type="text" id="username" name="username" class="form-control form-control-lg"
-                                        placeholder="请输入用户名" required>
-                                    <span id="usernameError" class="error-message">请输入有效的用户名</span>
+                            <!-- 用户注册表单 -->
+                            <form id="registerForm" method="post" class="login-form">
+
+                                <!-- 用户头像上传 -->
+                                <div class="text-center mb-4">
+                                    <div class="avatar-wrapper mx-auto">
+                                        <img id="avatar" src="static/picture/user-6.png" alt="用户头像" class="avatar">
+                                        <input type="file" id="avatarUpload" accept="image/*" style="display: none;">
+                                        <small class="text-muted d-block mt-3">允许上传 jpg, png 格式的图片</small>
+                                    </div>
                                 </div>
-                            </div>
-                            <!-- 手机号输入及获取验证码按钮 -->
-                            <div class="col-sm-12">
-                                <div class="input-block mb-24 position-relative">
-                                    <input type="text" id="phone" name="phone" class="form-control form-control-lg"
-                                        placeholder="请输入手机号" required>
-                                    <button type="button" id="getCodeBtn" class="btn btn-primary position-absolute"
-                                        style="right: 10px; top: 50%; transform: translateY(-50%);">获取验证码</button>
-                                    <span id="phoneError" class="error-message">请输入有效的手机号</span>
+
+                                <div class="row">
+                                    <!-- 用户名输入 -->
+                                    <div class="col-sm-12">
+                                        <div class="input-block mb-24">
+                                            <input type="text" id="username" name="username"
+                                                class="form-control form-control-lg" placeholder="请输入用户名" required>
+                                            <span id="usernameError" class="error-message">请输入有效的用户名</span>
+                                        </div>
+                                    </div>
+                                    <!-- 手机号输入及获取验证码按钮 -->
+                                    <div class="col-sm-12">
+                                        <div class="input-block mb-24 position-relative">
+                                            <input type="text" id="phone" name="phone"
+                                                class="form-control form-control-lg" placeholder="请输入手机号" required>
+                                            <button type="button" id="getCodeBtn"
+                                                class="btn btn-primary position-absolute"
+                                                style="right: 10px; top: 50%; transform: translateY(-50%);">获取验证码</button>
+                                            <span id="phoneError" class="error-message">请输入有效的手机号</span>
+                                        </div>
+                                    </div>
+                                    <!-- 验证码输入 -->
+                                    <div class="col-sm-12">
+                                        <div class="input-block mb-24">
+                                            <input type="text" id="verification_code" name="verification_code"
+                                                class="form-control form-control-lg" placeholder="请输入验证码" required>
+                                            <span id="codeError" class="error-message">请输入验证码</span>
+                                        </div>
+                                    </div>
+                                    <!-- 密码输入 -->
+                                    <div class="col-sm-12">
+                                        <div class="input-block mb-24">
+                                            <input type="password" id="password" name="password"
+                                                class="form-control form-control-lg" placeholder="请输入密码" required>
+                                            <span id="passwordError" class="error-message">请输入有效的密码</span>
+                                        </div>
+                                    </div>
+                                    <!-- 角色选择 -->
+                                    <div class="col-sm-12">
+                                        <div class="input-block mb-24">
+                                            <select id="role" name="role" class="form-control form-control-lg" required>
+                                                <option value="">选择角色</option>
+                                                <option value="user">用户</option>
+                                                <option value="author">作者</option>
+                                                <option value="admin">管理员</option>
+                                            </select>
+                                            <span id="roleError" class="error-message">请选择一个角色</span>
+                                        </div>
+                                    </div>
+                                    <!-- 提交按钮 -->
+                                    <div class="col-sm-12">
+                                        <button type="submit" class="btn btn-primary btn-lg w-100">注册</button>
+                                    </div>
                                 </div>
-                            </div>
-                            <!-- 验证码输入 -->
-                            <div class="col-sm-12">
-                                <div class="input-block mb-24">
-                                    <input type="text" id="verification_code" name="verification_code"
-                                        class="form-control form-control-lg" placeholder="请输入验证码" required>
-                                    <span id="codeError" class="error-message">请输入验证码</span>
-                                </div>
-                            </div>
-                            <!-- 密码输入 -->
-                            <div class="col-sm-12">
-                                <div class="input-block mb-24">
-                                    <input type="password" id="password" name="password" class="form-control form-control-lg"
-                                        placeholder="请输入密码" required>
-                                    <span id="passwordError" class="error-message">请输入有效的密码</span>
-                                </div>
-                            </div>
-                            <!-- 角色选择 -->
-                            <div class="col-sm-12">
-                                <div class="input-block mb-24">
-                                    <select id="role" name="role" class="form-control form-control-lg" required>
-                                        <option value="">选择角色</option>
-                                        <option value="user">用户</option>
-                                        <option value="author">作者</option>
-                                        <option value="admin">管理员</option>
-                                    </select>
-                                    <span id="roleError" class="error-message">请选择一个角色</span>
-                                </div>
-                            </div>
-                            <!-- 提交按钮 -->
-                            <div class="col-sm-12">
-                                <button type="submit" class="btn btn-primary btn-lg w-100">注册</button>
-                            </div>
+                            </form>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
-<!-- 注册账户与头像上传结束 -->
+        </section>
+        <!-- 注册账户与头像上传结束 -->
 
-<!-- 样式优化 -->
-<style>
-    .avatar-wrapper {
-        position: relative;
-        display: inline-block;
-        cursor: pointer;
-    }
+        <!-- 样式优化 -->
+        <style>
+            .avatar-wrapper {
+                position: relative;
+                display: inline-block;
+                cursor: pointer;
+            }
 
-    .avatar {
-        width: 150px;
-        height: 150px;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 4px solid #007bff;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease;
-    }
+            .avatar {
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+                object-fit: cover;
+                border: 4px solid #007bff;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                transition: transform 0.3s ease;
+            }
 
-    .avatar:hover {
-        transform: scale(1.05);
-    }
+            .avatar:hover {
+                transform: scale(1.05);
+            }
 
-    .my-account {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        background: linear-gradient(135deg, #e0eafc, #cfdef3); /* 渐变背景 */
-    }
+            .my-account {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                background: linear-gradient(135deg, #e0eafc, #cfdef3);
+                /* 渐变背景 */
+            }
 
-    .account {
-        width: 100%;
-        max-width: 600px;
-        margin: 0 auto;
-        padding: 40px;
-        background-color: #ffffff;
-        border-radius: 15px;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    }
+            .account {
+                width: 100%;
+                max-width: 600px;
+                margin: 0 auto;
+                padding: 40px;
+                background-color: #ffffff;
+                border-radius: 15px;
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            }
 
-    .form-control-lg {
-        height: auto;
-        padding: 12px;
-        font-size: 16px;
-        border-radius: 10px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    }
+            .form-control-lg {
+                height: auto;
+                padding: 12px;
+                font-size: 16px;
+                border-radius: 10px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            }
 
-    .btn {
-        border-radius: 50px;
-        padding: 12px 24px;
-        font-size: 18px;
-        font-weight: 500;
-        transition: all 0.3s ease;
-    }
+            .btn {
+                border-radius: 50px;
+                padding: 12px 24px;
+                font-size: 18px;
+                font-weight: 500;
+                transition: all 0.3s ease;
+            }
 
-    .btn-primary {
-        background-color: #007bff;
-        border: none;
-    }
+            .btn-primary {
+                background-color: #007bff;
+                border: none;
+            }
 
-    .btn-primary:hover {
-        background-color: #0056b3;
-    }
+            .btn-primary:hover {
+                background-color: #0056b3;
+            }
 
-    .error-message {
-        color: red;
-        display: none;
-    }
-</style>
+            .error-message {
+                color: red;
+                display: none;
+            }
+        </style>
 
 
 
@@ -378,6 +380,7 @@
     <!-- 移动菜单结束 -->
 
     <!-- Jquery JS -->
+    <script src="static/js/config.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
     <script src="static/js/bootstrap.min.js"></script>
     <script src="static/js/jquery-3.6.3.min.js"></script>

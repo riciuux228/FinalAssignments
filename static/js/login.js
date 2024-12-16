@@ -9,7 +9,7 @@ $(document).ready(function () {
         var password = md5Encrypt(init_password);
 
         $.ajax({
-            url: "http://localhost:8080/user/login", 
+            url: API_BASE_URL + "/user/login",
             type: "POST",
             contentType: "application/json",
             data: JSON.stringify({
@@ -22,7 +22,7 @@ $(document).ready(function () {
                     localStorage.setItem('user', JSON.stringify({
                         username: res.username,
                         user_id: res.id,
-                        token: res.token  
+                        token: res.token
                     }));
                     console.log("token:", res.token);
                     console.log("localStorage:", localStorage.getItem('user'));

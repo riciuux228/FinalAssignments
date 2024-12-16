@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="static/css/slick.css">
     <link rel="stylesheet" href="static/css/slick-theme.css">
     <link rel="stylesheet" href="static/css/app.css">
+    <link rel="stylesheet" type="text/css" href="http://css.huangwx.cn/css/sweetalert.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 </head>
 
@@ -663,6 +665,9 @@
 
     <!-- 回到顶部按钮 -->
     <button class="scrollToTopBtn"><i class="fa fa-arrow-up"></i></button>
+    <a href="https://work.weixin.qq.com/kfid/kfc61294dbf78e88204" rel="nofollow" target="_blank" id="customer-service">
+        <img src="https://wwcdn.weixin.qq.com/node/wework/images/32.cd01ba3084.png" alt="客服">
+    </a>
 
     <!-- 移动菜单开始 -->
     <div class="mobile-nav__wrapper">
@@ -691,6 +696,7 @@
         </div>
     </div>
     <!-- 移动菜单结束 -->
+
     <style>
         #avatar {
             width: 30px;
@@ -705,9 +711,36 @@
         #avatar:hover {
             transform: scale(1.05);
         }
+
+        /* 将客服链接固定在右下角 */
+        #customer-service {
+            position: fixed;
+            right: 20px;
+            bottom: 80px;
+            /* 将客服框位置上移，避免遮挡回到顶部按钮 */
+            z-index: 1001;
+            /* 确保客服框在回到顶部按钮上面 */
+        }
+
+        /* 调整图像大小以适应设计 */
+        #customer-service img {
+            width: 40px;
+            height: 40px;
+        }
+
+        /* 回到顶部按钮样式 */
+        .scrollToTopBtn {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            z-index: 1000;
+            /* 回到顶部按钮层级比客服框低 */
+        }
     </style>
 
+
     <!-- JavaScript文件 -->
+    <script src="static/js/config.js"></script>
     <script src="static/js/bootstrap.min.js"></script>
     <script src="static/js/jquery-3.6.3.min.js"></script>
     <script src="static/js/slick.min.js"></script>

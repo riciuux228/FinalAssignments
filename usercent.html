@@ -15,345 +15,485 @@
     <!-- 所有CSS文件 -->
     <link rel="stylesheet" href="static/css/font-awesome.css">
     <link rel="stylesheet" href="static/css/bootstrap.min.css">
-    <link rel="stylesheet" href="static/css/slick.css">
-    <link rel="stylesheet" href="static/css/slick-theme.css">
     <link rel="stylesheet" href="static/css/app.css">
     <link rel="stylesheet" type="text/css" href="http://css.huangwx.cn/css/sweetalert.css">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <!-- CKEditor 富文本编辑器 -->
+    <script src="https://cdn.ckeditor.com/ckeditor5/39.0.0/classic/ckeditor.js"></script>
+
+    <style>
+        /* 全局样式 */
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+
+        .container {
+            max-width: 1200px;
+        }
+
+        .account {
+            transition: all 0.3s ease-in-out;
+        }
+
+        .account:hover {
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .text-primary {
+            color: #007bff !important;
+        }
+
+        .avatar-wrapper {
+            position: relative;
+            width: 150px;
+            height: 150px;
+        }
+
+        .avatar {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #e9ecef;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .avatar:hover {
+            border-color: #007bff;
+            cursor: pointer;
+        }
+
+        /* 表格样式 */
+        .table {
+            background-color: #fff;
+        }
+
+        .table thead {
+            background-color: #e9ecef;
+        }
+
+        .table thead th {
+            font-weight: 600;
+            color: #495057;
+        }
+
+        .table tbody tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        /* 按钮容器使用 flex 布局 */
+        .user-actions {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .user-actions .btn {
+            flex-grow: 1;
+            max-width: 180px;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: linear-gradient(to right, #007bff, #0056b3);
+            border: none;
+            padding: 10px 20px;
+            color: white;
+        }
+
+        .btn-danger {
+            background: linear-gradient(to right, #dc3545, #c82333);
+            border: none;
+            padding: 10px 20px;
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background: linear-gradient(to right, #c82333, #bd2130);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(to right, #0056b3, #003d7a);
+        }
+
+        @media (max-width: 767.98px) {
+            .user-actions {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .user-actions .btn {
+                width: 100%;
+                max-width: none;
+                margin-bottom: 10px;
+            }
+        }
+
+        .badge-primary {
+            background-color: #007bff;
+            color: white;
+            font-size: 14px;
+            padding: 5px 10px;
+            border-radius: 12px;
+            font-weight: 500;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.35em 0.65em;
+            font-size: 75%;
+            font-weight: 700;
+            line-height: 1;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: baseline;
+            border-radius: 0.375rem;
+        }
+
+        .user-info {
+            margin-bottom: 20px;
+        }
+
+        .user-info p {
+            font-size: 16px;
+            margin-bottom: 8px;
+            color: #495057;
+        }
+
+        .user-info strong {
+            color: #343a40;
+        }
+
+
+        .attachment-item {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .attachment-item img {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
+
+        .attachment-item a {
+            color: #007bff;
+            text-decoration: underline;
+            flex-grow: 1;
+        }
+
+        .attachment-item span {
+            margin-left: 10px;
+            color: green;
+        }
+
+        .attachment-item .delete-attachment {
+            margin-left: 10px;
+            background: linear-gradient(to right, #dc3545, #c82333);
+            border: none;
+            color: white;
+        }
+
+        .attachment-item .delete-attachment:hover {
+            background: linear-gradient(to right, #bd2130, #a71d2a);
+        }
+
+        /* 优化后的样式 */
+
+        /* 富文本编辑器样式 */
+        #articleContent {
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            padding: 15px;
+            font-size: 1rem;
+            background-color: #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            transition: border-color 0.3s ease;
+        }
+
+        #articleContent:focus {
+            border-color: #007bff;
+        }
+
+        /* 封面图片上传区域 */
+        #coverImage {
+            display: block;
+            width: 100%;
+            border-radius: 5px;
+            border: 1px solid #ced4da;
+            padding: 10px;
+            font-size: 1rem;
+            background-color: #f8f9fa;
+            transition: border-color 0.3s ease;
+        }
+
+        #coverImage:hover {
+            border-color: #007bff;
+        }
+
+        #coverImagePreview img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 上传附件区域 */
+        #attachments {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            background-color: #f8f9fa;
+            transition: border-color 0.3s ease;
+        }
+
+        #attachments:hover {
+            border-color: #007bff;
+        }
+
+        #attachment-preview .attachment-item,
+        #existing-attachments .attachment-item {
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        #attachment-preview .attachment-item span,
+        #existing-attachments .attachment-item span {
+            font-size: 0.9em;
+            color: #6c757d;
+        }
+
+        .attachment-item img {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+            border-radius: 4px;
+        }
+
+        .attachment-item a {
+            flex-grow: 1;
+            color: #007bff;
+            text-decoration: underline;
+        }
+
+        .attachment-item .delete-attachment {
+            background: linear-gradient(to right, #dc3545, #c82333);
+            border: none;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .attachment-item .delete-attachment:hover {
+            background-color: #bd2130;
+        }
+
+        /* 表单按钮样式 */
+        .form-group .btn-primary {
+            background-color: #007bff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            font-size: 1rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-group .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        .text-right {
+            text-align: right;
+            margin-top: 20px;
+        }
+
+        .form-group label {
+            font-size: 1.1rem;
+            color: #495057;
+        }
+
+        /* 卡片式表单布局 */
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease-in-out;
+        }
+
+        form:hover {
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        }
+    </style>
 </head>
 
-<body class="tt-smooth-scroll">
-
-    <!-- 预加载器 -->
-    <div id="preloader">
-        <div class="loader">
-            <div class="loader-square"></div>
-            <div class="loader-square"></div>
-            <div class="loader-square"></div>
-            <div class="loader-square"></div>
-            <div class="loader-square"></div>
-            <div class="loader-square"></div>
-            <div class="loader-square"></div>
-        </div>
-    </div>
-    <!-- 预加载器结束 -->
+<body>
 
     <!-- 主容器开始 -->
     <div id="scroll-container" class="scroll-container">
-
-        <!-- 头部菜单开始 -->
-        <header class="header mb-16">
-            <div class="header-topbar bg-light-gray">
-                <div class="container slider-container">
-                    <div class="header-topbar-wrapper">
-                        <div class="breaking-news">
-                            <p class="lead white">突发新闻</p>
-                        </div>
-                        <div>
-                            <div class="breaking-news-slider">
-                                <!-- Add breaking news items here -->
-                            </div>
-                        </div>
-                        <div class="social-media-icons d-sm-flex d-none">
-                            <ul class="list-unstyled mb-0">
-                                <li><a href=""><img src="static/picture/twitter.png" alt=""></a></li>
-                                <li><a href=""><img src="static/picture/facebook.png" alt=""></a></li>
-                                <li><a href=""><img src="static/picture/instagram.png" alt=""></a></li>
-                                <li><a href=""><img src="static/picture/linkedin.png" alt=""></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <nav class="navigation d-flex align-items-center justify-content-between">
-                    <div class="nav-main-wrapper">
-                        <a href="index.html" class="d-flex align-items-center">
-                            <img src="static/picture/logo.png" alt="/logo" class="header-logo">
-                        </a>
-                        <div class="main-menu__right">
-                            <div class="search-heart-icon d-sm-flex d-none align-items-center gap-8">
-                                <form id="demo-2">
-                                    <input type="search" class="form-control form-control-nav" placeholder="搜索">
-                                    <button type="submit">
-                                        <i class="fa-light fa-magnifying-glass"></i>
-                                    </button>
-                                </form>
-                                <div class="user-icon notification">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewbox="0 0 20 20"
-                                        fill="none">
-                                        <path
-                                            d="M16.0547 10.268V8.39844C16.0547 5.67102 14.2418 3.35934 11.7579 2.6043V1.75781C11.7579 0.788555 10.9693 0 10 0C9.03079 0 8.24223 0.788555 8.24223 1.75781V2.6043C5.75825 3.35934 3.94536 5.67098 3.94536 8.39844V10.268C3.94536 12.6638 3.03216 14.9355 1.37399 16.6648C1.21149 16.8342 1.16583 17.0843 1.25794 17.3002C1.35005 17.5161 1.56216 17.6562 1.79692 17.6562H7.1293C7.40149 18.9919 8.58524 20 10 20C11.4149 20 12.5986 18.9919 12.8708 17.6562H18.2032C18.4379 17.6562 18.65 17.5161 18.7421 17.3002C18.8342 17.0843 18.7886 16.8342 18.6261 16.6648C16.9679 14.9355 16.0547 12.6638 16.0547 10.268ZM9.41411 1.75781C9.41411 1.43473 9.67696 1.17188 10 1.17188C10.3231 1.17188 10.586 1.43473 10.586 1.75781V2.37219C10.3931 2.35359 10.1977 2.34375 10 2.34375C9.80239 2.34375 9.60696 2.35359 9.41411 2.37219V1.75781ZM10 18.8281C9.23618 18.8281 8.58489 18.3382 8.34301 17.6562H11.6571C11.4152 18.3382 10.7639 18.8281 10 18.8281ZM3.05981 16.4844C4.39423 14.6956 5.11723 12.5309 5.11723 10.268V8.39844C5.11723 5.70605 7.30766 3.51562 10 3.51562C12.6924 3.51562 14.8829 5.70605 14.8829 8.39844V10.268C14.8829 12.5309 15.6059 14.6956 16.9403 16.4844H3.05981Z"
-                                            fill="#FAFAFA"></path>
-                                    </svg>
-                                </div>
-                            </div>
-                            <a href="" class="d-xl-none d-flex main-menu__toggler mobile-nav__toggler"></a>
-                        </div>
-                </nav>
-            </div>
-        </header>
-        <!-- 头部菜单结束 -->
-
-        <!-- 用户中心开始 -->
         <section class="user-center py-40">
             <div class="container">
-                <div class="row row-gap-4">
+                <div class="row">
                     <!-- 左侧用户资料和操作按钮 -->
-                    <div class="col-xl-4">
+                    <div class="col-xl-4 col-lg-4 col-md-12 mb-4">
                         <div class="account p-24 shadow-lg rounded bg-white">
                             <h2 class="text-primary mb-12 fw-500">用户中心</h2>
                             <p class="text-muted mb-32">欢迎来到您的用户中心</p>
-                            <!-- 用户头像上传 -->
                             <div class="text-center mb-4">
                                 <div class="avatar-wrapper mx-auto">
                                     <img id="avatar" src="static/picture/user-1.png" alt="用户头像" class="avatar">
                                     <input type="file" id="avatarUpload" accept="image/*" style="display: none;">
-                                    <small class="text-muted d-block mt-3">允许上传 jpg, png 格式的图片</small>
                                 </div>
                             </div>
-                            <!-- 用户信息 -->
                             <div class="user-info mb-32">
-                                <p><strong>用户名:</strong> <span id="username" class="text-dark">张三</span></p>
-                                <p><strong>手机号码:</strong> <span id="phone" class="text-dark">123 4567 8901</span></p>
-                                <p><strong>注册日期:</strong> <span id="register-date" class="text-dark">2023-01-01</span>
+                                <p><strong>用户名:</strong> <span id="username" class="text-dark"></span></p>
+                                <p><strong>手机号码:</strong> <span id="phone" class="text-dark"></span></p>
+                                <p><strong>注册日期:</strong> <span id="register-date" class="text-dark"></span>
                                 </p>
                                 <p>
                                     <strong>用户权限:</strong>
-                                    <span id="user-role" class="badge badge-primary">普通用户</span>
+                                    <span id="user-role" class="badge badge-primary"></span>
                                 </p>
                             </div>
-                            <!-- 用户操作 -->
                             <div class="user-actions mt-32">
-                                <a href="edit-profile.html" class="btn btn-primary btn-lg me-2">编辑资料</a>
-                                <a href="change-password.html" class="btn btn-outline-secondary btn-lg me-2">修改密码</a>
+                                <a href="edit-profile.html" class="btn btn-primary btn-lg">编辑资料</a>
                                 <a href="#" class="btn btn-danger btn-lg" id="logout">退出登录</a>
                             </div>
+
                         </div>
                     </div>
+
                     <!-- 右侧用户文章展示 -->
-                    <div class="col-xl-8">
-                        <div class="row row-gap-4" id="articles-container">
-                            <!-- 动态添加文章卡片 -->
+                    <div class="col-xl-8 col-lg-8 col-md-12">
+                        <div class="table-responsive shadow-lg p-3 rounded">
+                            <table class="table table-bordered table-hover">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th>文章ID</th>
+                                        <th>文章标签</th>
+                                        <th>文章标题</th>
+                                        <th>上传时间</th>
+                                        <th>操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="articles-table-body">
+                                    <!-- 动态插入文章行 -->
+                                    <!-- 模拟一些文章 -->
+                                    <tr>
+                                        <td>1</td>
+                                        <td>科技, 编程</td>
+                                        <td>如何使用CKEditor发布文章</td>
+                                        <td>2024-10-11</td>
+                                        <td><button class="btn btn-primary btn-sm edit-article" data-id="1">修改</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
-                        <div class="pagination-container mt-4">
-                            <button class="btn btn-primary" id="prev-page" disabled>上一页</button>
-                            <button class="btn btn-primary" id="next-page">下一页</button>
+
+                        <!-- 富文本编辑器，用于发布和编辑文章 -->
+                        <div class="mt-5">
+                            <h3 class="text-primary mb-4">发布新文章</h3>
+                            <form id="articleForm" enctype="multipart/form-data">
+                                <input type="hidden" id="articleId">
+
+                                <div class="form-group">
+                                    <label for="articleTitle">文章标题</label>
+                                    <input type="text" id="articleTitle" class="form-control" placeholder="输入文章标题"
+                                        required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="articleTags">文章标签</label>
+                                    <input type="text" id="articleTags" class="form-control" placeholder="输入文章标签"
+                                        required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="articleDescription">文章描述</label>
+                                    <textarea id="articleDescription" class="form-control" rows="3"
+                                        placeholder="输入文章描述"></textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="articleContent">文章内容</label>
+                                    <textarea id="articleContent" rows="10"></textarea>
+                                </div>
+
+                                <!-- 分类选择 -->
+                                <div class="form-group">
+                                    <label for="articleCategory">文章分类</label>
+                                    <select id="articleCategory" class="form-control">
+                                        <option value="">请选择分类</option>
+                                        <!-- 动态插入分类数据 -->
+                                    </select>
+                                </div>
+
+                                <!-- 封面图片上传 -->
+                                <div class="form-group">
+                                    <label for="coverImage">上传封面图片</label>
+                                    <input type="file" id="coverImage" name="coverImage" class="form-control"
+                                        accept="image/*">
+                                </div>
+
+                                <!-- 封面图片预览区域 -->
+                                <div id="coverImagePreview" class="mt-3">
+                                    <!-- 动态展示封面图片 -->
+                                </div>
+
+
+                                <!-- 上传附件区域 -->
+                                <div class="form-group">
+                                    <label for="attachments">上传附件</label>
+                                    <input type="file" id="attachments" name="attachments[]" class="form-control"
+                                        multiple>
+                                </div>
+
+                                <!-- 已上传附件的预览区域 -->
+                                <div id="attachment-preview" class="mt-3">
+                                    <!-- 动态展示附件 -->
+                                </div>
+
+                                <div id="existing-attachments" class="mt-3">
+                                    <!-- 动态展示附件列表 -->
+                                </div>
+
+                                <div class="text-right">
+                                    <button type="submit" class="btn btn-primary mt-3">发布文章</button>
+                                </div>
+                            </form>
                         </div>
+
+
+
                     </div>
                 </div>
             </div>
         </section>
-        <!-- 用户中心结束 -->
-
-        <style>
-            /* 页面整体居中 */
-            .user-center {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                min-height: 80vh;
-                /* 根据需要调整高度 */
-                background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
-                /* 增加背景渐变 */
-            }
-
-            .account {
-                width: 100%;
-                max-width: 500px;
-                /* 控制内容宽度 */
-                height: auto;
-                margin: 0 auto;
-                padding: 40px;
-                background-color: #ffffff;
-                border-radius: 15px;
-                /* 添加圆角 */
-                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-                /* 添加阴影 */
-            }
-
-            /* 文字颜色与间距 */
-            .account h2 {
-                color: #007bff;
-                /* 标题颜色 */
-                font-weight: 600;
-            }
-
-            .account p {
-                color: #6c757d;
-                /* 副标题和文字颜色 */
-                font-size: 16px;
-                line-height: 1.6;
-            }
-
-            .user-info p {
-                font-size: 16px;
-                margin-bottom: 8px;
-            }
-
-            /* 用户操作按钮样式 */
-            .btn {
-                border-radius: 50px;
-                /* 圆角按钮 */
-                padding: 12px 24px;
-                transition: all 0.3s ease;
-                /* 添加过渡效果 */
-            }
-
-            .btn-primary {
-                background-color: #007bff;
-                border: none;
-            }
-
-            .btn-primary:hover {
-                background-color: #0056b3;
-                /* 按钮悬停时颜色变化 */
-            }
-
-            .btn-outline-secondary {
-                border-color: #6c757d;
-                color: #6c757d;
-            }
-
-            .btn-outline-secondary:hover {
-                background-color: #6c757d;
-                color: #ffffff;
-            }
-
-            .btn-danger {
-                background-color: #dc3545;
-                border: none;
-            }
-
-            .btn-danger:hover {
-                background-color: #c82333;
-            }
-
-            /* Badge 样式 */
-            .badge-primary {
-                background-color: #007bff;
-                color: #fff;
-                padding: 4px 8px;
-                border-radius: 8px;
-            }
-
-            .avatar-wrapper {
-                position: relative;
-                display: inline-block;
-                cursor: pointer;
-            }
-
-            .avatar {
-                width: 150px;
-                height: 150px;
-                border-radius: 50%;
-                object-fit: cover;
-                border: 4px solid #007bff;
-                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-                transition: transform 0.3s ease;
-            }
-
-            .avatar:hover {
-                transform: scale(1.05);
-            }
-
-            .my-account {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                min-height: 100vh;
-                background: linear-gradient(135deg, #e0eafc, #cfdef3);
-                /* 渐变背景 */
-            }
-
-            .account {
-                width: 100%;
-                max-width: 600px;
-                margin: 0 auto;
-                padding: 40px;
-                background-color: #ffffff;
-                border-radius: 15px;
-                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            }
-
-            .form-control-lg {
-                height: auto;
-                padding: 12px;
-                font-size: 16px;
-                border-radius: 10px;
-                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-            }
-
-            .btn {
-                border-radius: 50px;
-                padding: 12px 24px;
-                font-size: 18px;
-                font-weight: 500;
-                transition: all 0.3s ease;
-            }
-
-            .btn-primary {
-                background-color: #007bff;
-                border: none;
-            }
-
-            .btn-primary:hover {
-                background-color: #0056b3;
-            }
-
-            .error-message {
-                color: red;
-                display: none;
-            }
-
-            .pagination-container {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                gap: 10px;
-            }
-
-            .pagination-container .btn {
-                border-radius: 50px;
-                padding: 10px 20px;
-            }
-        </style>
-
     </div>
-    <!-- 主容器结束 -->
-
-    <!-- 返回顶部开始 -->
-    <button class="scrollToTopBtn"><i class="fa fa-arrow-up"></i></button>
-
-    <!-- 移动菜单开始 -->
-    <div class="mobile-nav__wrapper">
-        <div class="mobile-nav__overlay mobile-nav__toggler"></div>
-        <div class="mobile-nav__content">
-            <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
-            <div class="logo-box">
-                <a href="index.html" aria-label="logo image"><img src="static/picture/logo.png" alt=""></a>
-            </div>
-            <div class="mobile-nav__container"></div>
-            <ul class="mobile-nav__contact list-unstyled">
-                <li>
-                    <i class="fas fa-envelope"></i>
-                    <a href="mailto:example@company.com">example@company.com</a>
-                </li>
-                <li>
-                    <i class="fa fa-phone-alt"></i>
-                    <a href="tel:+12345678">+123 (4567) -890</a>
-                </li>
-            </ul>
-            <div class="mobile-nav__social">
-                <a href=""><i class="fa-brands fa-x-twitter"></i></a>
-                <a href=""><i class="fab fa-facebook"></i></a>
-                <a href=""><i class="fab fa-instagram"></i></a>
-            </div>
-        </div>
-    </div>
-    <!-- 移动菜单结束 -->
 
     <!-- Jquery JS -->
+    <script src="static/js/config.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
     <script src="static/js/bootstrap.min.js"></script>
     <script src="static/js/jquery-3.6.3.min.js"></script>
@@ -362,6 +502,10 @@
     <script src="static/js/app.js"></script>
     <script src="static/js/userifo.js"></script>
     <script src="static/js/fuzzySearch.js"></script>
+
+
+    <!-- CKEditor 初始化脚本 -->
+
 </body>
 
 </html>

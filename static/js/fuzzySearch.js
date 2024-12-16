@@ -1,5 +1,5 @@
 function initSearch() {
-    const apiUrl = 'http://localhost:8080/article/fuzzy_search/';
+    const apiUrl = `${API_BASE_URL}/article/fuzzy_search/`;
     const resultsContainerId = 'search-results-container';
     const prevPageBtnId = 'prev-page';
     const nextPageBtnId = 'next-page';
@@ -58,7 +58,7 @@ function initSearch() {
                                 <p class="card-text">${result.description}</p>
                                 <p class="card-text"><small class="text-muted">更新时间：${timestampToTime(result.update_time)}</small></p>
                                 <p class="card-text"><small class="text-muted">作者：${result.author}</small></p>
-                                <a href="${base_url+result.aid}" class="btn btn-primary">阅读更多</a>
+                                <a href="${base_url + result.aid}" class="btn btn-primary">阅读更多</a>
                             </div>
                         </div>
                     </div>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="编辑用户资料 || 博客/杂志HTML模板">
+
+    <title>编辑用户资料</title>
+
+    <!-- 网站图标 -->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/media/favicon.png">
+
+    <!-- 所有CSS文件 -->
+    <link rel="stylesheet" href="static/css/font-awesome.css">
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/app.css">
+    <link rel="stylesheet" type="text/css" href="http://css.huangwx.cn/css/sweetalert.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.19.0/js/md5.min.js"></script>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f5f7fa;
+            /* 柔和的浅灰色背景 */
+            color: #343a40;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .editor {
+            transition: all 0.3s ease-in-out;
+            padding: 40px 30px;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            /* 增加阴影效果 */
+            position: relative;
+        }
+
+        .text-primary {
+            color: #007bff !important;
+            font-weight: 700;
+            /* 加粗标题字体 */
+        }
+
+        .avatar-wrapper {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            margin: 20px auto;
+        }
+
+        .avatar {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #e9ecef;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .avatar:hover {
+            border-color: #007bff;
+            cursor: pointer;
+            box-shadow: 0 0 15px rgba(0, 123, 255, 0.4);
+            /* 增加悬停效果 */
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            /* 增加输入框之间的距离 */
+        }
+
+        .form-control {
+            border-radius: 8px;
+            /* 圆角输入框 */
+            padding: 10px 15px;
+            /* 输入框内边距 */
+            border: 1px solid #d1d3e2;
+            /* 边框颜色柔和 */
+            transition: border-color 0.3s ease-in-out;
+            font-size: 16px;
+            /* 增大字体 */
+        }
+
+        .form-control:focus {
+            border-color: #007bff;
+            /* 焦点状态颜色 */
+            box-shadow: 0 0 8px rgba(0, 123, 255, 0.4);
+            /* 焦点时的阴影效果 */
+        }
+
+        .btn {
+            border-radius: 8px;
+            /* 按钮圆角 */
+            padding: 12px 20px;
+            /* 增加按钮内边距 */
+            font-size: 16px;
+            font-weight: 600;
+            text-transform: uppercase;
+            /* 按钮文字大写 */
+            transition: all 0.3s ease-in-out;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            /* 按钮的渐变背景 */
+            border: none;
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #0056b3, #003a75);
+            /* 悬停时颜色变化 */
+            box-shadow: 0 8px 20px rgba(0, 91, 187, 0.4);
+            /* 增加悬停阴影 */
+        }
+
+        .btn-block {
+            width: 100%;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 28px;
+            /* 增大标题字体 */
+            margin-bottom: 30px;
+            /* 增加标题下的间距 */
+        }
+
+        input[type="file"] {
+            display: none;
+            /* 隐藏文件上传控件 */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="editor">
+            <h2 class="text-center text-primary">编辑用户资料</h2>
+            <form id="editProfileForm">
+                <div class="avatar-wrapper">
+                    <img id="avatarPreview" class="avatar" src="" alt="用户头像">
+                    <input type="file" id="avatarUpload" style="display: none;">
+                </div>
+                <div class="form-group">
+                    <label for="username">用户名</label>
+                    <input type="text" class="form-control" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">新密码</label>
+                    <input type="password" class="form-control" id="password" name="password">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">保存修改</button>
+            </form>
+        </div>
+    </div>
+    <!-- Jquery JS -->
+    <script src="static/js/config.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+    <script src="static/js/jquery-3.6.3.min.js"></script>
+    <script src="static/js/slick.min.js"></script>
+    <script src="static/js/jquery-validator.js"></script>
+    <script src="static/js/edit-profile.js"></script>
+</body>
+
+</html>

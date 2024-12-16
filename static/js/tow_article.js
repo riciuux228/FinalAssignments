@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
     const urlParams = new URLSearchParams(window.location.search);
     const cid = urlParams.get('cid');
     if (cid) {
@@ -21,7 +21,7 @@ function getArticlesByCategory(cid) {
     // articlesContainer.hide(); // 如果有加载指示器
 
     $.ajax({
-        url: `http://localhost:8080/article/get_category_articles/${cid}`,
+        url: `${API_BASE_URL}/article/get_category_articles/${cid}`,
         type: 'GET',
         success: function (data) {
             // loadingIndicator.hide(); // 如果有加载指示器
@@ -31,7 +31,7 @@ function getArticlesByCategory(cid) {
                 articlesContainer.empty(); // 清空现有内容
                 updateCategoryName(data[0].category_name);
                 console.log('分类名:', data[0].category_name);
-                data.forEach(function(article) {
+                data.forEach(function (article) {
                     var articleHtml = `
                         <div class="article-item">
                             <a href="blog-detail-1.html?aid=${article.aid}">
@@ -64,6 +64,26 @@ function getArticlesByCategory(cid) {
             // loadingIndicator.hide(); // 如果有加载指示器
             // articlesContainer.show(); // 如果有加载指示器
         }
+    });
+}
+
+
+function replaceLocalhostWithIp(url) {
+    return new Promise(function (resolve, reject) {
+        $.ajax({
+            url: API_BASE_URL + `/article/get_local_ip`,
+            type: 'GET',
+            success: function (data) {
+                console.log('本地IP:', data.local_ip);
+                // 替换 URL 中的 localhost
+                const updatedUrl = url.replace('http://localhost:8080', `http://${data.local_ip}:8080`);
+                resolve(updatedUrl);
+            },
+            error: function (error) {
+                console.error('获取本地IP失败:', error);
+                resolve(url); // 获取 IP 失败时返回原始 URL
+            }
+        });
     });
 }
 

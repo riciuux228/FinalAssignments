@@ -12,7 +12,7 @@ $(document).ready(function () {
 
         // 发送请求到后端获取验证码
         $.ajax({
-            url: 'http://localhost:8080/user/send_code',
+            url: `${API_BASE_URL}/user/send_code`,
             method: 'POST',
             contentType: 'application/json',
             data: JSON.stringify({ phone: phone }),
@@ -100,14 +100,14 @@ $(document).ready(function () {
     // 注册表单提交事件
     $('#registerForm').on('submit', function (e) {
         e.preventDefault();  // 阻止默认表单提交
-    
+
         var username = $('#username').val();
         var phone = $('#phone').val();
         var code = $('#verification_code').val();  // 获取验证码
         var password = $('#password').val();
         var role = $('#role').val();
         var valid = true;
-    
+
         // 验证逻辑保持不变
         if (username.length < 3) {
             $('#usernameError').show();
@@ -115,7 +115,7 @@ $(document).ready(function () {
         } else {
             $('#usernameError').hide();
         }
-    
+
         var phoneRegex = /^1[3-9]\d{9}$/;
         if (!phoneRegex.test(phone)) {
             $('#phoneError').show();
@@ -123,14 +123,14 @@ $(document).ready(function () {
         } else {
             $('#phoneError').hide();
         }
-    
+
         if (code.length === 0) {
             $('#codeError').show();
             valid = false;
         } else {
             $('#codeError').hide();
         }
-    
+
         if (role === "") {
             $('#roleError').show();
             valid = false;
@@ -144,7 +144,7 @@ $(document).ready(function () {
         } else {
             $('#passwordError').hide();
         }
-    
+
         // 如果验证不通过，停止表单提交
         if (!valid) {
             return;
@@ -164,17 +164,17 @@ $(document).ready(function () {
         if (avatarFile) {
             formData.append('avatar', avatarFile);
         }
-    
+
         // 请求后端创建用户
         $.ajax({
-            url: 'http://localhost:8080/user/register',
+            url: `${API_BASE_URL}/user/register`,
             method: 'POST',
             contentType: false,  // 让 jQuery 不设置 Content-Type
             processData: false,  // 让 jQuery 不处理数据
             data: formData,
             success: function (response) {
                 console.log(response);
-                if (response.result === 'success') { 
+                if (response.result === 'success') {
                     swal({
                         title: "注册成功",
                         text: "欢迎加入我们！" + username,
@@ -185,11 +185,11 @@ $(document).ready(function () {
                             console.log("value:", value);
                             window.location.href = "/login.html";
                         }
-                    } );
+                    });
                 } else {
                     swal({
                         title: "注册失败",
-                        text: "原因： "+response.error+" 请尝试重新输入信息",
+                        text: "原因： " + response.error + " 请尝试重新输入信息",
                         icon: "error",
                         button: "确定"
                     })
@@ -199,22 +199,22 @@ $(document).ready(function () {
             error: function (xhr, status, error) {
                 // 解析错误响应内容
                 let errorMessage = "请求失败，请稍后再试";
-                
+
                 // 如果后端返回了详细的错误信息
                 if (xhr.responseJSON && xhr.responseJSON.error) {
                     errorMessage = xhr.responseJSON.error;
                 } else if (xhr.responseText) {
                     errorMessage = xhr.responseText;
                 }
-                
+
                 // 向用户展示错误信息
                 swal({
                     title: "注册失败",
-                    text:  "原因： "+xhr.responseJSON.error+" 请尝试重新输入信息", 
+                    text: "原因： " + xhr.responseJSON.error + " 请尝试重新输入信息",
                     icon: "error",
                     button: "确定"
                 })
-                
+
                 // 控制台日志（用于调试）
                 console.error("Error details:", error);
                 console.error("Response Text:", xhr.responseText);
@@ -229,16 +229,16 @@ function md5Encrypt(data) {
 }
 
 // 点击头像区域上传文件
-document.querySelector('.avatar-wrapper').addEventListener('click', function() {
+document.querySelector('.avatar-wrapper').addEventListener('click', function () {
     document.getElementById('avatarUpload').click();
 });
 
 // 显示上传的头像预览
-document.getElementById('avatarUpload').addEventListener('change', function(event) {
+document.getElementById('avatarUpload').addEventListener('change', function (event) {
     const file = event.target.files[0];
     if (file) {
         const reader = new FileReader();
-        reader.onload = function(e) {
+        reader.onload = function (e) {
             document.getElementById('avatar').src = e.target.result;
         };
         reader.readAsDataURL(file);

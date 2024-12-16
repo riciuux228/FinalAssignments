@@ -187,78 +187,78 @@
         </header>
         <!-- 头部菜单结束 -->
 
-     <!-- 头部菜单结束 -->
-<!-- 搜索结果展示部分开始 -->
-<section class="search-results py-40">
-    <div class="container">
-        <div class="heading mb-48">
-            <h2 class="fw-700 black">搜索结果</h2>
-        </div>
-        <div class="row row-gap-4" id="search-results-container">
-            <!-- 动态加载搜索结果 -->
-        </div>
-        <div class="pagination-container mt-4">
-            <button class="btn btn-primary" id="prev-page" disabled>上一页</button>
-            <span id="page-info" class="mx-3">第 1 页，共 1 页</span>
-            <button class="btn btn-primary" id="next-page">下一页</button>
-        </div>
-    </div>
-</section>
-<!-- 搜索结果展示部分结束 -->
+        <!-- 头部菜单结束 -->
+        <!-- 搜索结果展示部分开始 -->
+        <section class="search-results py-40">
+            <div class="container">
+                <div class="heading mb-48">
+                    <h2 class="fw-700 black">搜索结果</h2>
+                </div>
+                <div class="row row-gap-4" id="search-results-container">
+                    <!-- 动态加载搜索结果 -->
+                </div>
+                <div class="pagination-container mt-4">
+                    <button class="btn btn-primary" id="prev-page" disabled>上一页</button>
+                    <span id="page-info" class="mx-3">第 1 页，共 1 页</span>
+                    <button class="btn btn-primary" id="next-page">下一页</button>
+                </div>
+            </div>
+        </section>
+        <!-- 搜索结果展示部分结束 -->
 
-<style>
-    .search-results .card {
-        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-    }
+        <style>
+            .search-results .card {
+                transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            }
 
-    .search-results .card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    }
+            .search-results .card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            }
 
-    .search-results .card-img-top {
-        height: 200px;
-        object-fit: cover;
-    }
+            .search-results .card-img-top {
+                height: 200px;
+                object-fit: cover;
+            }
 
-    .search-results .card-title {
-        font-size: 1.25rem;
-        font-weight: 600;
-    }
+            .search-results .card-title {
+                font-size: 1.25rem;
+                font-weight: 600;
+            }
 
-    .search-results .card-text {
-        font-size: 0.875rem;
-        color: #6c757d;
-    }
+            .search-results .card-text {
+                font-size: 0.875rem;
+                color: #6c757d;
+            }
 
-    .search-results .btn-primary {
-        background-color: #007bff;
-        border-color: #007bff;
-        transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
-    }
+            .search-results .btn-primary {
+                background-color: #007bff;
+                border-color: #007bff;
+                transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+            }
 
-    .search-results .btn-primary:hover {
-        background-color: #0056b3;
-        border-color: #004085;
-    }
+            .search-results .btn-primary:hover {
+                background-color: #0056b3;
+                border-color: #004085;
+            }
 
-    .pagination-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 10px;
-    }
+            .pagination-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+            }
 
-    .pagination-container .btn {
-        border-radius: 50px;
-        padding: 10px 20px;
-    }
+            .pagination-container .btn {
+                border-radius: 50px;
+                padding: 10px 20px;
+            }
 
-    #page-info {
-        font-size: 1rem;
-        font-weight: 500;
-    }
-</style>
+            #page-info {
+                font-size: 1rem;
+                font-weight: 500;
+            }
+        </style>
 
 
 
@@ -300,9 +300,11 @@
         </div>
     </div>
     <!-- 移动菜单结束 -->
-     
+
 
     <!-- Jquery JS -->
+
+    <script src="static/js/config.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
     <script src="static/js/bootstrap.min.js"></script>
     <script src="static/js/jquery-3.6.3.min.js"></script>
